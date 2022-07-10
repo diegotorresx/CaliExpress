@@ -6365,19 +6365,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\PC-83685\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "Validacion_Portabilidad",
       "projectName": "Validacion_Portabilidad",
-      "projectPath": "D:\\CaliExpress\\Códigos\\Codigo Validacion_Portabilidad\\.local",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\CaliExpress\\Códigos\\Codigo Validacion_Portabilidad\\.local",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ]
+      "projectPath": "C:\\ProyectsCaliExpress\\Códigos\\Codigo Validacion_Portabilidad\\.local",
+      "packagesPath": "C:\\Users\\PC-83685\\.nuget\\packages\\",
+      "outputPath": "C:\\ProyectsCaliExpress\\Códigos\\Codigo Validacion_Portabilidad\\.local"
     },
     "frameworks": {
       "net461": {
@@ -6403,7 +6399,7 @@
             "version": "[22.4.5, 22.4.5]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\User\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\PC-83685\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
       }
     },
     "runtimes": {
