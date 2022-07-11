@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "/FJbIjGy5wzhOK3s1qgAkA982zc7+IV3cCDEDQM8eYHkRYnEBhVJfjASb2vjcgGRrlEioLqaxvBzBhHFaAIVAQ==",
+  "dgSpecHash": "xRkaq9pWl570XF/H6JH5xhSLXjL3Zqji8p6Ko+koy/NkjHe2V7M/T4I4Q0KMR64HDfIi6WFW94S4qlqOpDWwGw==",
   "success": true,
   "projectFilePath": "C:\\ProyectsCaliExpress\\Códigos\\Codigo Validacion_Portabilidad\\.local\\",
   "expectedPackageFiles": [
@@ -15,6 +15,7 @@
     "C:\\Users\\PC-83685\\.nuget\\packages\\google.apis.gmail.v1\\1.55.0.2510\\google.apis.gmail.v1.1.55.0.2510.nupkg.sha512",
     "C:\\Users\\PC-83685\\.nuget\\packages\\google.apis.peopleservice.v1\\1.55.0.2567\\google.apis.peopleservice.v1.1.55.0.2567.nupkg.sha512",
     "C:\\Users\\PC-83685\\.nuget\\packages\\htmlagilitypack\\1.11.38\\htmlagilitypack.1.11.38.nupkg.sha512",
+    "C:\\Users\\PC-83685\\.nuget\\packages\\inputsimulator\\1.0.4\\inputsimulator.1.0.4.nupkg.sha512",
     "C:\\Users\\PC-83685\\.nuget\\packages\\mailkit\\3.1.1\\mailkit.3.1.1.nupkg.sha512",
     "C:\\Users\\PC-83685\\.nuget\\packages\\microsoft.aspnet.signalr.client\\2.4.0\\microsoft.aspnet.signalr.client.2.4.0.nupkg.sha512",
     "C:\\Users\\PC-83685\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\3.1.6\\microsoft.aspnetcore.connections.abstractions.3.1.6.nupkg.sha512",

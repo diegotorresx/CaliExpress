@@ -1,2 +1,0 @@
-KEY|VALUE|DESCRIPTION
-url|https://erml-dev2.fa.us2.oraclecloud.com:443/crmRestApi/resources/latest/GB_MensajeError_c|URL to access Bimbo web service for send error message from Email
