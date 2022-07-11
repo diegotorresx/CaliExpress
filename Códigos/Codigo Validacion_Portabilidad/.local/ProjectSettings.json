@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"OpenedDocuments":"[\"Main.xaml\",\"Business_Logic/Download_InputData.xaml\"]","ProjectBreakpoints":"{\"Value\":{\"Business_Logic/Download_InputData.xaml\":[{\"ConditionalExpression\":null,\"ActionExpression\":null,\"ExpectedHitCounter\":null,\"ShouldContinueAfterAction\":false,\"IsTransient\":false,\"IsEnabled\":true,\"Id\":\"19a63c5e-eb2e-4c8c-ba0c-1fbafd21fe88\",\"ActivityIdRef\":\"Assign_23\",\"ActivityId\":\"1.161\",\"ActivityName\":\"Assign\"}],\"Main.xaml\":[{\"ConditionalExpression\":null,\"ActionExpression\":null,\"ExpectedHitCounter\":null,\"ShouldContinueAfterAction\":false,\"IsTransient\":false,\"IsEnabled\":true,\"Id\":\"7b52b164-5e52-4718-bfbb-3026d65aac10\",\"ActivityIdRef\":\"InvokeWorkflowFile_12\",\"ActivityId\":\"1.1222\",\"ActivityName\":\"Invoke Add_Queue_Items workflow\"}]}}","ProjectWatches":"{\"Value\":[]}"}
+=======
+{"OpenedDocuments":"[\"Main.xaml\",\"Framework/Folders.xaml\",\"Business_Logic/Inicio_Sesion_Caex.xaml\",\"Business_Logic/Download_InputData.xaml\"]","ProjectBreakpoints":"{\"Value\":{}}"}
+>>>>>>> 9c08fe38a693ead4efb25cbdf0b84d36c0997f81

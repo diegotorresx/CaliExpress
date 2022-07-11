@@ -5,7 +5,7 @@
     <x:Property Name="outBoolValidateDescargaInput" Type="OutArgument(x:Boolean)" />
   </x:Members>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1065,1751</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1257,1751</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -46,6 +46,8 @@
       <x:String>System.Activities.DynamicUpdate</x:String>
       <x:String>System.Security</x:String>
       <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>WindowsInput</x:String>
+      <x:String>WindowsInput.Native</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -89,6 +91,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>WindowsInput</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
@@ -238,7 +241,7 @@
                       <av:PointCollection x:Key="ConnectorLocation">430,1073 430,1216.5</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Descarga del archivo Input Caex" sap:VirtualizedContainerService.HintSize="974,3173" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <Sequence DisplayName="Descarga del archivo Input Caex" sap:VirtualizedContainerService.HintSize="974,3159" sap2010:WorkflowViewState.IdRef="Sequence_11">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="si:DirectoryInfo" Name="dirInfoDownloadFile" />
                     </Sequence.Variables>
@@ -247,24 +250,24 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="932,3081" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="932,3067" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                       <TryCatch.Try>
-                        <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="894,2853" sap2010:WorkflowViewState.IdRef="RetryScope_2">
+                        <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="894,2839" sap2010:WorkflowViewState.IdRef="RetryScope_2">
                           <ui:RetryScope.ActivityBody>
                             <ActivityAction>
-                              <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="852,2679" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                              <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="852,2665" sap2010:WorkflowViewState.IdRef="Sequence_13">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: CAEX | Inicio" sap:VirtualizedContainerService.HintSize="810,2587" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="41180516-ea21-44b4-9fcc-de9213de1cf1" Version="V2">
+                                <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: CAEX | Inicio" sap:VirtualizedContainerService.HintSize="810,2573" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="41180516-ea21-44b4-9fcc-de9213de1cf1" Version="V2">
                                   <uix:NApplicationCard.Body>
                                     <ActivityAction x:TypeArguments="x:Object">
                                       <ActivityAction.Argument>
                                         <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                                       </ActivityAction.Argument>
-                                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="776,2371" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="776,2357" sap2010:WorkflowViewState.IdRef="Sequence_12">
                                         <Sequence.Variables>
                                           <Variable x:TypeArguments="si:FileInfo[]" Name="fileLogCombineInfo" />
                                         </Sequence.Variables>
@@ -313,9 +316,9 @@
                                             <uix:TargetAnchorable BrowserURL="http://190.145.107.211/sistema_personalizado/index.php/ContactCenter/vistaAgente" DesignTimeRectangle="992, 383, 334, 31" ElementType="Button" FriendlyName="'Consultar'" FullSelectorArgument="&lt;webctrl parentid='fomrDesReport' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='fomrDesReport' tag='BUTTON' type='button' class='btn btn-outline-primary btn-small btn-block' aaname='Consultar' check:innerText='Consultar' /&gt;" Guid="41ea3708-f0e9-4d8f-93c6-afa37e2b73f8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAVIAAAAjCAYAAADG3II/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ5SURBVHhe7d2xbhNBEIdxOl4tj5BHSEnngoKU7lxSp0wZIVFQ0CAKpLxGnmPY/3G7nlvP+ZydyCD0jfSTbO/e4erTnoWUd8YwDMOkhpAyDMMkZxHS5xezmwez95/KwkcAgKc2qpFqpZ8WUi1o0+2j2eGn2edfAABPbVQj1Uof0xZSVVYboosBAEdqpZpZp4VUheUkCgDb1Eo1s04LqZ7/owsAAKfUzDqEFAAGEFIASCKkAJBESAEgiZACQBIhBYAkQoq8H2YfnszunPvyWbj3Su6/mO2+x2vAWyOkSDl8C8JZXu/K537ftfUh3f0Dccf/i5BiXAmVIrqP1v4yQoprIqQYtv9aHukvOHkqamuP/dOJttxH96rri3uWvf5ngxrH6N/2sWwh7a6/K58f3P7o8/qd6vcmwNhCSDGsP/VFphiVKLXPulNs/Wmg3WdePwnivH8/v744pMHapKz16/V9+HMFcAYhxbDNkJYQ6TTYP/r76+rpb21dr6NTbzqkHX+/6DsB5xBSDItitlBC5h+Zq61o9RHUe50Q/b63CGm774yQYhQhxbiVUDYrJ1JF8NITqafr6t5sSPv1rbgD5xBSpNRT3SKWJVj1vz9N6z5Kiq/bvxXSnVvze6fXZV+N+BTZV4Q0ek9IMYqQIm0KTwmR58NaYxutbYV0ca0LZ7+m/edOpO07zvfov7OCTUgxipACQBIhBYAkQgoASYQUAJIIKQAkEVIASApDyt+1B4DLrP5d+5sHs9vH+CIAwJFaqWbWaSF9fvlTWG3gZAoAp9RGNVKtVDPrtJBqtKDKapOe/wEAR2qjGukjqlmElGEYhnn9EFKGYZjUmP0GDj6JGcY+kQcAAAAASUVORK5CYII=" InformativeScreenshot="7d451c0ffd685d308c28215d1fa49ee2.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CAEX |Agente' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive" />
                                           </uix:NClick.Target>
                                         </uix:NClick>
-                                        <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State '&amp;Guardar'" sap:VirtualizedContainerService.HintSize="734,981" sap2010:WorkflowViewState.IdRef="NCheckState_5" ScopeIdentifier="41180516-ea21-44b4-9fcc-de9213de1cf1" Timeout="120" Version="V1">
+                                        <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State '&amp;Guardar'" sap:VirtualizedContainerService.HintSize="734,967" sap2010:WorkflowViewState.IdRef="NCheckState_5" ScopeIdentifier="41180516-ea21-44b4-9fcc-de9213de1cf1" Timeout="120" Version="V1">
                                           <uix:NCheckState.IfExists>
-                                            <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="376,765" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                            <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="376,751" sap2010:WorkflowViewState.IdRef="Sequence_22">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -326,7 +329,13 @@
                                                   <uix:TargetAnchorable DesignTimeRectangle="608, 36, 33, 30" ElementType="Button" FriendlyName="'Ubicaciones anteriores'" FullSelectorArgument="&lt;wnd cls='ToolbarWindow32' title='Barra de herramientas de área de dirección' /&gt;&lt;ctrl name='Barra de herramientas de área de dirección' role='tool bar' /&gt;&lt;ctrl name='Ubicaciones anteriores' role='push button' /&gt;" FuzzySelectorArgument="&lt;wnd cls='ToolbarWindow32' title='Barra de herramientas de área de dirección' /&gt;&lt;ctrl name='Barra de herramientas de área de dirección' role='tool bar' /&gt;&lt;ctrl name='Ubicaciones anteriores' role='push button' automationid='' check:text='Ubicaciones anteriores' /&gt;" Guid="b1c024bc-e514-4ae1-a048-d4da7f8478b5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACUAAAAiCAYAAADYmxC7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACeSURBVFhH7dJRCsMgEIThHt1LeCjxBB7E5w0DtU1KIZPNFpYyPwhGA36YPCxhOVFjDMs2Ut0UQEios4RiE4pNKDah2P4b1Xu3Oefz6R3WsHelEFRrzUopVms9wDDHGvbwDlsIan/4gn1bYwv7fJ8ILwiF/uh7mBeEQlFowbwgFI5CwHhB6CeouwnFJhSbUGxCsb1QmGQbqW5qlRBltgFKNEZiOl5k1QAAAABJRU5ErkJggg==" InformativeScreenshot="d05af60b31a84d95b90a224fcf141272.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Guardar como' /&gt;" SearchSteps="Selector, FuzzySelector" Visibility="Interactive" />
                                                 </uix:NClick.Target>
                                               </uix:NClick>
-                                              <uix:NKeyboardShortcuts DelayBetweenShortcuts="{x:Null}" ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="334,178" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Version="V1" />
+                                              <ui:InvokeCode ContinueOnError="{x:Null}" Code="InputSimulator Simulator = new InputSimulator();&#xD;&#xA;Simulator.Keyboard.TextEntry(strText);&#xD;&#xA;Simulator.Keyboard.Sleep(1000);&#xD;&#xA;Simulator.Keyboard.KeyPress(VirtualKeyCode.RETURN);" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
+                                                <ui:InvokeCode.Arguments>
+                                                  <InArgument x:TypeArguments="x:String" x:Key="strText">
+                                                    <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_52">inDicConfig["RutaArchivosRecibidos"].ToString()</mca:CSharpValue>
+                                                  </InArgument>
+                                                </ui:InvokeCode.Arguments>
+                                              </ui:InvokeCode>
                                               <uix:NClick ClickType="Single" DisplayName="Click 'unchecked'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_9" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="41180516-ea21-44b4-9fcc-de9213de1cf1" Version="V1">
                                                 <uix:NClick.Target>
                                                   <uix:TargetAnchorable DesignTimeRectangle="747, 494, 88, 26" ElementType="Button" FriendlyName="'unchecked'" FullSelectorArgument="&lt;wnd ctrlid='1' title='&amp;amp;Guardar' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1' title='&amp;amp;Guardar' check:text='unchecked' /&gt;" Guid="575feed4-1bd9-4f1f-a371-db6a40082924" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFwAAAAeCAYAAAChf3k/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFXSURBVGhD7ZbBkcMgDEXpiW6oZG+0QitUsWd34A4UQ+yJRLDHSWRx8D+8GQspyvDAYDfPMwE7INwYCDdGCHd//+AChGMRdIrB7wjHIlgLpmkCCkC4MRBuDIQbA+HGjBeeI3nnyG34SLlXp0Ki4DzF3MvZMFZ4lS0FpBAo8RpVbi08U/SOQurlruLOwuvuPtrNrRwZp8COoZBETQh+GV97syPLx/hdD0XGCmfndY5lgmXym5Bj4S/4eHkuYjPLvd6i53982kOXscLfdlA7cS6niVNYF+hgkZpF/aqHMuOEdyfGx9o8i8Vilbtg5zdHws/2UGag8O0V57ucT7a5VOtuXHPleRNZxe3JKvHOkXK6hy5DhVfEa92cnTy3fC62i1HH/TJ+tDtZD3lpftBDkfHCbwaEGwPhxkC4MRBuDIQbc1o40EU4FkGnGPyOcMwDcD0QbgyEmzLTA5FgXzR3YxXLAAAAAElFTkSuQmCC" InformativeScreenshot="87ab0628dcd22324409ccc4bee2351fb.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Guardar como' /&gt;" SearchSteps="Selector, FuzzySelector" Visibility="Interactive" />
