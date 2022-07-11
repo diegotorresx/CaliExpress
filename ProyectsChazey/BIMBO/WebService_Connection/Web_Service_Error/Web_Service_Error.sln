@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web_Service_Error", "Web_Service_Error\Web_Service_Error.csproj", "{E5609883-3BF0-4ABE-A77D-E65680B5BACD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business_Logic", "Business_Logic\Business_Logic.csproj", "{12C9CC8D-A912-4097-AFED-D9AA90AC626F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5609883-3BF0-4ABE-A77D-E65680B5BACD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5609883-3BF0-4ABE-A77D-E65680B5BACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5609883-3BF0-4ABE-A77D-E65680B5BACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5609883-3BF0-4ABE-A77D-E65680B5BACD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12C9CC8D-A912-4097-AFED-D9AA90AC626F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12C9CC8D-A912-4097-AFED-D9AA90AC626F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12C9CC8D-A912-4097-AFED-D9AA90AC626F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12C9CC8D-A912-4097-AFED-D9AA90AC626F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D5BED392-D53E-4571-95F8-519FD124FE98}
+	EndGlobalSection
+EndGlobal

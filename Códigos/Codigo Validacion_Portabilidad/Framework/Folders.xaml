@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1199,2090</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>869,2090</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Folders_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
@@ -88,7 +88,7 @@
         <OutArgument x:TypeArguments="x:String">[StrDocumentsPath]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">D:\CaliExpress\Carpetas de datos robots</InArgument>
+        <InArgument x:TypeArguments="x:String">C:\ProyectsCaliExpress\Carpetas de datos robots</InArgument>
       </Assign.Value>
     </Assign>
     <WriteLine DisplayName="Escribir línea" sap:VirtualizedContainerService.HintSize="436,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[Path.Combine(StrDocumentsPath, InOut_Config(&quot;name&quot;).ToString)]" />
