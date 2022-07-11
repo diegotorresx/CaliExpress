@@ -241,7 +241,7 @@
                       <av:PointCollection x:Key="ConnectorLocation">430,1073 430,1216.5</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Descarga del archivo Input Caex" sap:VirtualizedContainerService.HintSize="974,3159" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <Sequence DisplayName="Descarga del archivo Input Caex" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_11">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="si:DirectoryInfo" Name="dirInfoDownloadFile" />
                     </Sequence.Variables>
@@ -465,7 +465,7 @@
                               <av:PointCollection x:Key="ConnectorLocation">160,1226 160,1196 220,1196 220,1013.5 200,1013.5 200,983.5</av:PointCollection>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Sequence DisplayName="Validar si archivo existe" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                          <Sequence DisplayName="Validar si archivo existe" sap:VirtualizedContainerService.HintSize="695,602" sap2010:WorkflowViewState.IdRef="Sequence_15">
                             <Sequence.Variables>
                               <Variable x:TypeArguments="si:FileInfo[]" Name="fileInfoDownloadInput" />
                               <Variable x:TypeArguments="si:DirectoryInfo" Name="directoryInfoGetFiles" />
@@ -495,7 +495,7 @@
                               </Assign.To>
                               <Assign.Value>
                                 <InArgument x:TypeArguments="si:FileInfo[]">
-                                  <mca:CSharpValue x:TypeArguments="si:FileInfo[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_45">directoryInfoGetFiles.GetFiles(".xlsx")</mca:CSharpValue>
+                                  <mca:CSharpValue x:TypeArguments="si:FileInfo[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_53">directoryInfoGetFiles.GetFiles("*.xlsx")</mca:CSharpValue>
                                 </InArgument>
                               </Assign.Value>
                             </Assign>
