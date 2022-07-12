@@ -1,0 +1,942 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="DownloadFacturaElectronica" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=mscorlib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="dicConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="boolDownloadFacturaElectronica" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="arrayDataToProcess" Type="InArgument(s:String[])" />
+    <x:Property Name="strRazonSocial" Type="InArgument(x:String)" />
+    <x:Property Name="strObservaciones" Type="InArgument(x:String)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>1208,827</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Activities.System.Encode</x:String>
+      <x:String>UiPath.Activities.System.Compression.Workflow</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.Python</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Python.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Flowchart sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart.Variables>
+      <Variable x:TypeArguments="x:String" Name="strUserFacturasElectronicas" />
+      <Variable x:TypeArguments="ss:SecureString" Name="Password" />
+      <Variable x:TypeArguments="x:String" Name="strPassword" />
+    </Flowchart.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+        <av:Size x:Key="ShapeSize">60,75</av:Size>
+        <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,114.5</av:PointCollection>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Flowchart.StartNode>
+      <x:Reference>__ReferenceID4</x:Reference>
+    </Flowchart.StartNode>
+    <FlowStep x:Name="__ReferenceID4">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">200,114.5</av:Point>
+          <av:Size x:Key="ShapeSize">200,51</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">300,165.5 300,246.5</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:RetryScope DisplayName="Retry Scope - Login Facturas Electronicas" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="RetryScope_1" RetryInterval="00:00:10">
+        <ui:RetryScope.ActivityBody>
+          <ActivityAction>
+            <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="860,2404" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <TryCatch DisplayName="Try Catch Login Facturras Electronicas" sap:VirtualizedContainerService.HintSize="818,2312" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <TryCatch.Try>
+                  <Sequence sap:VirtualizedContainerService.HintSize="780,2085" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:GetRobotCredential TimeoutMS="{x:Null}" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="738,180" sap2010:WorkflowViewState.IdRef="GetRobotCredential_3">
+                      <ui:GetRobotCredential.AssetName>
+                        <InArgument x:TypeArguments="x:String">
+                          <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">dicConfig["assetFacturasElectronicas"].ToString()</mca:CSharpValue>
+                        </InArgument>
+                      </ui:GetRobotCredential.AssetName>
+                      <ui:GetRobotCredential.Password>
+                        <OutArgument x:TypeArguments="ss:SecureString">
+                          <mca:CSharpReference x:TypeArguments="ss:SecureString" sap2010:WorkflowViewState.IdRef="CSharpReference`1_11">Password</mca:CSharpReference>
+                        </OutArgument>
+                      </ui:GetRobotCredential.Password>
+                      <ui:GetRobotCredential.Username>
+                        <OutArgument x:TypeArguments="x:String">
+                          <mca:CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_10">strUserFacturasElectronicas</mca:CSharpReference>
+                        </OutArgument>
+                      </ui:GetRobotCredential.Username>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:GetRobotCredential>
+                    <Assign sap:VirtualizedContainerService.HintSize="738,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">
+                          <mca:CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">strPassword</mca:CSharpReference>
+                        </OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">
+                          <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">new System.Net.NetworkCredential(string.Empty, Password).Password</mca:CSharpValue>
+                        </InArgument>
+                      </Assign.Value>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Assign>
+                    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser IE: Página sin título" sap:VirtualizedContainerService.HintSize="738,1673" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="87723b7a-e648-4c98-b573-1a9cd2e6a0df" Version="V1" WindowResize="Maximize">
+                      <uix:NApplicationCard.Body>
+                        <ActivityAction x:TypeArguments="x:Object">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="704,1457" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <uix:NGoToUrl DisplayName="Go To URL" sap:VirtualizedContainerService.HintSize="662,81" sap2010:WorkflowViewState.IdRef="NGoToUrl_5" Version="V1">
+                              <uix:NGoToUrl.Url>
+                                <InArgument x:TypeArguments="x:String">
+                                  <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">dicConfig["urlFacturasElectronicas"].ToString()</mca:CSharpValue>
+                                </InArgument>
+                              </uix:NGoToUrl.Url>
+                            </uix:NGoToUrl>
+                            <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="662,22" sap2010:WorkflowViewState.IdRef="Delay_4" />
+                            <ui:SetValue AlterIfDisabled="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" ContinueOnError="False" DisplayName="Set Text 'INPUT  ctl00_ContentPla...'" sap:VirtualizedContainerService.HintSize="662,154" sap2010:WorkflowViewState.IdRef="SetValue_3">
+                              <ui:SetValue.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0bdfce4a-9b1f-4a0a-a329-aabdeff24137" InformativeScreenshot="01dabf324b1ef55a4754ce1cb8b0327c" Selector="&lt;webctrl tableCol='2' tableRow='1' tag='INPUT' /&gt;">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                  <ui:Target.WaitForReady>
+                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                  </ui:Target.WaitForReady>
+                                </ui:Target>
+                              </ui:SetValue.Target>
+                              <ui:SetValue.Text>
+                                <InArgument x:TypeArguments="x:String">
+                                  <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">strUserFacturasElectronicas</mca:CSharpValue>
+                                </InArgument>
+                              </ui:SetValue.Text>
+                            </ui:SetValue>
+                            <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="662,22" sap2010:WorkflowViewState.IdRef="Delay_5" />
+                            <ui:SetValue AlterIfDisabled="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" ContinueOnError="False" DisplayName="Set Text 'INPUT  ctl00_ContentPla...'" sap:VirtualizedContainerService.HintSize="662,154" sap2010:WorkflowViewState.IdRef="SetValue_4">
+                              <ui:SetValue.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="955f0d71-32f7-447c-84ae-11e1e017ed31" InformativeScreenshot="c7bfb29f66d2323e711a91a346e5da79" Selector="&lt;webctrl tableCol='2' tableRow='2' tag='INPUT' /&gt;">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                  <ui:Target.WaitForReady>
+                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                  </ui:Target.WaitForReady>
+                                </ui:Target>
+                              </ui:SetValue.Target>
+                              <ui:SetValue.Text>
+                                <InArgument x:TypeArguments="x:String">
+                                  <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">strPassword</mca:CSharpValue>
+                                </InArgument>
+                              </ui:SetValue.Text>
+                            </ui:SetValue>
+                            <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="662,22" sap2010:WorkflowViewState.IdRef="Delay_6" />
+                            <uix:NClick ClickType="Double" DisplayName="Click 'Ingresar'" sap:VirtualizedContainerService.HintSize="662,156" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="87723b7a-e648-4c98-b573-1a9cd2e6a0df" Version="V1">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable BrowserURL="http://10.141.11.53/efactura/WebSite/Acceso/LogIn.aspx" DesignTimeRectangle="583, 314, 80, 27" ElementType="Button" FriendlyName="'Ingresar'" FullSelectorArgument="&lt;webctrl tableCol='1' tableRow='3' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl type='submit' class='' tag='INPUT' aaname='Ingresar' check:text='Ingresar' /&gt;" Guid="46a1b30e-d074-4ce7-8142-f407a37e49b8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFQAAAAfCAYAAAB59OpuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHUSURBVGhD7ZQ9TsNAEEa5ShoOQA0VR6BAouUEINFT08ARoEEcgZIr0OYc9EYf0os+j9aJFcYYw6z0lOzO7N/z2AddtdRWQpPbRujh47r4BrSe0OePrtiDEppMCU2mhCZTQpMpocmkCF2tVt3l3X0z9t8oocmU0GQmEXp6ftGdXd18oZg4Oj7pzSGPOHP0S5x1ybl9ffsa1y9jQvOYIx7e17240Jjn+Loink99z7l+eunFh5hMaBxT3y+uHL8E8qNQQV8g0y+odXxtxX1vxXwvRNEXivve6isnPohdTCbULyAUZ4wKouJAY1ForD7FPUcgWesOre1iFPfzCh4o/Sh4LJMJjYdxoaouPzzEea2La6z1+vk41RUfRgvtp1xgXGuMmR/5UaEc2P87usA2oVTfEJ5LxbVi7C94yK0KXYzQoQodK7RVodtAluYNrbFooUPfOV1im1By4kXHiGYtvrdxb+2rcfqLEkqODk2fCtkllOp2eb4WwjzOHCTqv8vibIKxxQkVyuEizPF5cV1Ams/dFhdeka35jPEgZhWahS62zyV+E7MIjdUgeC31PfTcpTFbhSLQWbpMMZvQv0oJTaaEJlNCkxkUWuwPbSO0Wk4roamt6z4BYUSQytt0JAQAAAAASUVORK5CYII=" InformativeScreenshot="99f6bd667b9f55d10ff134a35b769055.png" ScopeSelectorArgument="&lt;html title='Página sin título' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                            </uix:NClick>
+                            <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Consulta de Documentos'" sap:VirtualizedContainerService.HintSize="662,472" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="87723b7a-e648-4c98-b573-1a9cd2e6a0df" Timeout="20" Version="V1">
+                              <uix:NCheckState.IfExists>
+                                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="304,256" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_8">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:Boolean">
+                                        <mca:CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_14">boolDownloadFacturaElectronica</mca:CSharpReference>
+                                      </OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_21">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">
+                                        <mca:CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_27">strObservaciones</mca:CSharpReference>
+                                      </OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">
+                                        <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_39">null</mca:CSharpValue>
+                                      </InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                </Sequence>
+                              </uix:NCheckState.IfExists>
+                              <uix:NCheckState.IfNotExists>
+                                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="304,256" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_9">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:Boolean">
+                                        <mca:CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_15">boolDownloadFacturaElectronica</mca:CSharpReference>
+                                      </OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_22">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">
+                                        <mca:CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_28">strObservaciones</mca:CSharpReference>
+                                      </OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">The virtual assistant could not find Consulta de Documentos element in Facturas Electronicas web page</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                </Sequence>
+                              </uix:NCheckState.IfNotExists>
+                              <uix:NCheckState.Target>
+                                <uix:TargetAnchorable BrowserURL="http://10.141.11.53/efactura/WebSite/Consultas.aspx" DesignTimeRectangle="709, 257, 180, 23" ElementType="Button" FriendlyName="'Consulta de Documentos'" FullSelectorArgument="&lt;webctrl id='ctl00_ContentPlaceHolder2_Btn_Consultas' tableCol='1' tableRow='1' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ctl00_ContentPlaceHolder2_Btn_Consultas' type='submit' class='' tag='INPUT' aaname='Consulta de Documentos' check:text='Consulta de Documentos' /&gt;" Guid="67352f1c-02b4-44b3-a57d-ef287da01585" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALgAAAAbCAYAAADPu0WHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARESURBVHhe7ZTpTSRJEEbXFcwALwAnOP5gAYcNnB5wm8AhGBcQiFsgxGVEr15JX+kjJhPtVItZVStKeuqMjDsy1P8M8stvhL9c8PxG+msXfGFhIUlGBn1fFvzz8zNJek91wT8+PpKk91QX/P39PUl6T3XB397ekqT3VBf89fU1SXpPdcFfXl6GZmJiYjA2Ntby69evot3fYn5+fjA9PV3UDcPW1lbTX0n3HczD5yOos2Sf/Dk/tuDxoQ4PD5u7/3PJfcG7LmWJYRec2fg9fwyjtOT0yIxKup+muuDPz8+dmZubaxapdA/x/m/hdW1ubjaDjzZd6Brr/Py88Ts4OCje8+v3fYVemFFJ99NUF/zp6akz4+Pjg42NjaLO2d/fb5oXrkNmIaUjpnRnZ2ftPXgu7FZWVlqZhSYOZy14LS++uvN8JYgjW9UpXYxPve4r1Af2URf74Kx45HZbkA40D3y8D+7Rc1Zuj8s5yvIFn4/r6N/fCtST+6gu1QFxzp4fXNeFH1lwCis9mhMflwF5s+j8IZE1IOx01jLJDp0Pv7TgnP2xpZMdeL4I8b1WzoqlvuQb8zjfLTh1qo8Yg3xeq/esmPzGOj2O7BRHuijLl3pq74EPMjEl12z1XrL1uPEtiaN6ulJd8MfHx85Q5N7eXlEnlpeXm+FLPj09/eLHeX19vdVjiw/nqampL76O2wG2s7OzzZlfZM7EJofsHNXicZyYw2PFviD2ImLPDnV6v+oBPB++nIklvYi1uF/MHeO4XKrTZ+lniHnxVf/RtpTHZzss1QV/eHjoDM0tLS39dn9yctKe1ajraW53d7c9MxTpYkxkbMDjRDt05OLsOfXYspMMxKj1ANh4bR4LH8Vx3F4wD3Tq2SG/fGIt2OMXzxF88JXsdcbciqM3clm2Ec0yvmXMi6168fcAxY55RWluf0J1we/v7zujhuO9Go9nOD4+bhra2dlpZM5ra2utXo8s2cFWumingXL2uoiNn+yi33f5os5jcY9euu+IPQtk7tEjew/g+aKtE2txv5g7xnE52kbie8e8+Ooto+139aveku6/Ul3wu7u7oaCwmZmZVlYj/CL70JAXFxebocge3erqaiujw6amkzw5OdnAWTlUB7/SqR7O4PGJhU5yhPvoK1k5VU/s24kzEMTz2akeyfTgeq8dlF9+5JGf4sTcqlO2Ufa5gtfocwVqQe+2cR6K676xT9lK7kJ1wW9vb4eG4pzt7e0vemTXuw6ZhiXrETkfHR198WNIsnOdHkF6DVO2suOs4YJ83DaCXvZaeOliX96HE/sQqtdRDijV5f6aE2Dr9/xyr9x6E9XMfUkG5skdeA1xVuTB1vX4aA4+a7cD7xNUX1eqC35zc5Mkvae64NfX10nSe6oLfnV1lSS9Jxc8GWmqC355eZkkvae64BcXF0nSe6oLniSjgr52wfPLbxS/XPD8RvgbDP4FBAeivIJGkN8AAAAASUVORK5CYII=" InformativeScreenshot="c228a3a9182e8b3c702784069451db6f.png" ScopeSelectorArgument="&lt;html url='http://10.141.11.53/efactura/WebSite/Consultas.aspx' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive" />
+                              </uix:NCheckState.Target>
+                            </uix:NCheckState>
+                          </Sequence>
+                        </ActivityAction>
+                      </uix:NApplicationCard.Body>
+                      <uix:NApplicationCard.TargetApp>
+                        <uix:TargetApp Area="1280, 78, 1280, 906" BrowserType="IE" IconBase64="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" InformativeScreenshot="fe05426175315f7dec006666398b439f.png" Selector="&lt;html title='Página sin título' /&gt;" Url="http://10.141.11.53/efactura/WebSite/Acceso/LogIn.aspx" />
+                      </uix:NApplicationCard.TargetApp>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NApplicationCard>
+                  </Sequence>
+                </TryCatch.Try>
+                <TryCatch.Catches>
+                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="784,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ActivityAction x:TypeArguments="s:Exception">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                      </ActivityAction.Argument>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,435" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Error">
+                          <ui:LogMessage.Message>
+                            <InArgument x:TypeArguments="x:Object">
+                              <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_38">"Failed login to Facturas electronicas verify DownloadFacturaElectronica.xaml -&gt; Retry Scope Login Facturas Electronicas **** System Error: " + exception.ToString()</mca:CSharpValue>
+                            </InArgument>
+                          </ui:LogMessage.Message>
+                        </ui:LogMessage>
+                        <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">
+                              <mca:CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_13">boolDownloadFacturaElectronica</mca:CSharpReference>
+                            </OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke KillAllProcesses workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Framework\\KillAllProcesses.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          </ui:InvokeWorkflowFile.Arguments>
+                        </ui:InvokeWorkflowFile>
+                      </Sequence>
+                    </ActivityAction>
+                  </Catch>
+                </TryCatch.Catches>
+              </TryCatch>
+            </Sequence>
+          </ActivityAction>
+        </ui:RetryScope.ActivityBody>
+        <ui:RetryScope.Condition>
+          <ActivityFunc x:TypeArguments="x:Boolean" />
+        </ui:RetryScope.Condition>
+        <ui:RetryScope.NumberOfRetries>
+          <InArgument x:TypeArguments="x:Int32">
+            <mca:CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">Int32.Parse(dicConfig["TryErrorNumber"].ToString())</mca:CSharpValue>
+          </InArgument>
+        </ui:RetryScope.NumberOfRetries>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:RetryScope>
+      <FlowStep.Next>
+        <FlowDecision x:Name="__ReferenceID0" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+          <FlowDecision.Condition>
+            <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">boolDownloadFacturaElectronica</mca:CSharpValue>
+          </FlowDecision.Condition>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <av:Point x:Key="ShapeLocation">260.5,246.5</av:Point>
+              <av:Size x:Key="ShapeSize">79,87</av:Size>
+              <av:PointCollection x:Key="TrueConnector">260.5,290 200,290</av:PointCollection>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <FlowDecision.True>
+            <FlowStep x:Name="__ReferenceID1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">0,264.5</av:Point>
+                  <av:Size x:Key="ShapeSize">200,51</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">100,315.5 100,387.52 310,387.52 310,456.5</av:PointCollection>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:RetryScope DisplayName="Retry Scope go to download factura" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="RetryScope_2">
+                <ui:RetryScope.ActivityBody>
+                  <ActivityAction>
+                    <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="476,706" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <TryCatch DisplayName="Try Catch go to download factura" sap:VirtualizedContainerService.HintSize="434,614" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                        <TryCatch.Try>
+                          <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser IE: iexplore.exe" sap:VirtualizedContainerService.HintSize="810,2743" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" InteractionMode="Simulate" OpenMode="Never" ScopeGuid="e43ddacd-251d-4096-8772-68d1b00296ff" Version="V1">
+                            <uix:NApplicationCard.Body>
+                              <ActivityAction x:TypeArguments="x:Object">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                                </ActivityAction.Argument>
+                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="776,2527" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <uix:NClick ClickType="Single" DisplayName="Click 'Consulta de Documentos'" sap:VirtualizedContainerService.HintSize="734,156" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e43ddacd-251d-4096-8772-68d1b00296ff" Version="V1">
+                                    <uix:NClick.Target>
+                                      <uix:TargetAnchorable BrowserURL="http://10.141.11.53/efactura/WebSite/Consultas.aspx" DesignTimeRectangle="709, 257, 180, 23" ElementType="Button" FriendlyName="'Consulta de Documentos'" FullSelectorArgument="&lt;webctrl id='ctl00_ContentPlaceHolder2_Btn_Consultas' tableCol='1' tableRow='1' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ctl00_ContentPlaceHolder2_Btn_Consultas' type='submit' class='' tag='INPUT' aaname='Consulta de Documentos' check:text='Consulta de Documentos' /&gt;" Guid="4ffa949b-afee-41c3-8dd3-d5a87032be0d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALgAAAAbCAYAAADPu0WHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARESURBVHhe7ZTpTSRJEEbXFcwALwAnOP5gAYcNnB5wm8AhGBcQiFsgxGVEr15JX+kjJhPtVItZVStKeuqMjDsy1P8M8stvhL9c8PxG+msXfGFhIUlGBn1fFvzz8zNJek91wT8+PpKk91QX/P39PUl6T3XB397ekqT3VBf89fU1SXpPdcFfXl6GZmJiYjA2Ntby69evot3fYn5+fjA9PV3UDcPW1lbTX0n3HczD5yOos2Sf/Dk/tuDxoQ4PD5u7/3PJfcG7LmWJYRec2fg9fwyjtOT0yIxKup+muuDPz8+dmZubaxapdA/x/m/hdW1ubjaDjzZd6Brr/Py88Ts4OCje8+v3fYVemFFJ99NUF/zp6akz4+Pjg42NjaLO2d/fb5oXrkNmIaUjpnRnZ2ftPXgu7FZWVlqZhSYOZy14LS++uvN8JYgjW9UpXYxPve4r1Af2URf74Kx45HZbkA40D3y8D+7Rc1Zuj8s5yvIFn4/r6N/fCtST+6gu1QFxzp4fXNeFH1lwCis9mhMflwF5s+j8IZE1IOx01jLJDp0Pv7TgnP2xpZMdeL4I8b1WzoqlvuQb8zjfLTh1qo8Yg3xeq/esmPzGOj2O7BRHuijLl3pq74EPMjEl12z1XrL1uPEtiaN6ulJd8MfHx85Q5N7eXlEnlpeXm+FLPj09/eLHeX19vdVjiw/nqampL76O2wG2s7OzzZlfZM7EJofsHNXicZyYw2PFviD2ImLPDnV6v+oBPB++nIklvYi1uF/MHeO4XKrTZ+lniHnxVf/RtpTHZzss1QV/eHjoDM0tLS39dn9yctKe1ajraW53d7c9MxTpYkxkbMDjRDt05OLsOfXYspMMxKj1ANh4bR4LH8Vx3F4wD3Tq2SG/fGIt2OMXzxF88JXsdcbciqM3clm2Ec0yvmXMi6168fcAxY55RWluf0J1we/v7zujhuO9Go9nOD4+bhra2dlpZM5ra2utXo8s2cFWumingXL2uoiNn+yi33f5os5jcY9euu+IPQtk7tEjew/g+aKtE2txv5g7xnE52kbie8e8+Ooto+139aveku6/Ul3wu7u7oaCwmZmZVlYj/CL70JAXFxebocge3erqaiujw6amkzw5OdnAWTlUB7/SqR7O4PGJhU5yhPvoK1k5VU/s24kzEMTz2akeyfTgeq8dlF9+5JGf4sTcqlO2Ufa5gtfocwVqQe+2cR6K676xT9lK7kJ1wW9vb4eG4pzt7e0vemTXuw6ZhiXrETkfHR198WNIsnOdHkF6DVO2suOs4YJ83DaCXvZaeOliX96HE/sQqtdRDijV5f6aE2Dr9/xyr9x6E9XMfUkG5skdeA1xVuTB1vX4aA4+a7cD7xNUX1eqC35zc5Mkvae64NfX10nSe6oLfnV1lSS9Jxc8GWmqC355eZkkvae64BcXF0nSe6oLniSjgr52wfPLbxS/XPD8RvgbDP4FBAeivIJGkN8AAAAASUVORK5CYII=" InformativeScreenshot="1ef8e3894566b9a13c8825553e4862fd.png" ScopeSelectorArgument="&lt;html url='http://10.141.11.53/efactura/WebSite/Consultas.aspx' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                                    </uix:NClick.Target>
+                                  </uix:NClick>
+                                  <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="734,22" sap2010:WorkflowViewState.IdRef="Delay_7" />
+                                  <uix:NSelectItem DisplayName="Select Item '&gt;&gt; Seleccione &lt;&lt;'" sap:VirtualizedContainerService.HintSize="734,156" sap2010:WorkflowViewState.IdRef="NSelectItem_1" ScopeIdentifier="e43ddacd-251d-4096-8772-68d1b00296ff" Version="V1">
+                                    <uix:NSelectItem.Item>
+                                      <InArgument x:TypeArguments="x:String">
+                                        <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">strRazonSocial</mca:CSharpValue>
+                                      </InArgument>
+                                    </uix:NSelectItem.Item>
+                                    <uix:NSelectItem.Items>
+                                      <scg:List x:TypeArguments="x:String" Capacity="21">
+                                        <x:String>&gt;&gt; Seleccione &lt;&lt;</x:String>
+                                        <x:String>1 - MANPOWER, S.A. DE C.V.</x:String>
+                                        <x:String>2 - FACTORIA Y MANUFACTURA S.A DE C.V.</x:String>
+                                        <x:String>3 - AGROPOWER S.A. DE C.V.</x:String>
+                                        <x:String>4 - RIGHT MANAGEMENT MEXICO S.A. DE C.V.</x:String>
+                                        <x:String>29 - TECNOLOGIA Y MANUFACTURA, S.A. DE C.V.</x:String>
+                                        <x:String>35 - MANPOWER CORPORATIVO, S.A. DE C.V.</x:String>
+                                        <x:String>39 - BUSINESS LOGISTICS MANAGERS SA DE CV</x:String>
+                                        <x:String>49 - MANPOWER INDUSTRIAL, S.A. DE C.V.</x:String>
+                                        <x:String>51 - INTELECTO TECNOLOGICO, S.A de C.V.</x:String>
+                                        <x:String>61 - MANPOWER PROFESSIONAL, S.A de C.V.</x:String>
+                                        <x:String>37 - PAYMENT SERVICES, S.A. DE C.V.</x:String>
+                                        <x:String>71 - EXPERIS MEXICO S.A. DE C.V.</x:String>
+                                        <x:String>210 - NURSE.CO DE MÉXICO, S.A. DE C.V.</x:String>
+                                        <x:String>5 - INNOVACION TECNOLOGIA SMART SA DE CV</x:String>
+                                        <x:String>10 - TUPROMOTORIA SA DE CV</x:String>
+                                        <x:String>11 - SMART ADMINISTRACION Y SOPORTE SA DE CV</x:String>
+                                        <x:String>12 - INNOVATIVE FOOD PROCESS SA DE CV</x:String>
+                                        <x:String>13 - INNOVATIVE INDUSTRIAL ASSEMBLY SA DE CV</x:String>
+                                        <x:String>18 - EXPERTS BUSINESS TRANSPORTATION SA DE CV</x:String>
+                                        <x:String>9 - INNOVATION ADMINISTRATIVE PROCESS SA DE CV</x:String>
+                                      </scg:List>
+                                    </uix:NSelectItem.Items>
+                                    <uix:NSelectItem.Target>
+                                      <uix:TargetAnchorable BrowserURL="http://10.141.11.53/efactura/WebSite/Consultas.aspx" DesignTimeRectangle="298, 385, 650, 19" ElementType="DropDown" FriendlyName="'&gt;&gt; Seleccione &lt;&lt;'" FullSelectorArgument="&lt;webctrl tableCol='1' tableRow='2' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl type='select-one' class='' tag='SELECT' aaname='' /&gt;" Guid="ad26b250-7274-4d83-9774-47c2b571307f" InformativeScreenshot="54589d0756ef26aa41bb9c5371d23d6c.png" ScopeSelectorArgument="&lt;html url='http://10.141.11.53/efactura/WebSite/Consultas.aspx' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive" />
+                                    </uix:NSelectItem.Target>
+                                  </uix:NSelectItem>
+                                  <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="734,22" sap2010:WorkflowViewState.IdRef="Delay_8" />
+                                  <uix:NSelectItem DisplayName="Select Item '- Seleccione una Serie -'" sap:VirtualizedContainerService.HintSize="734,156" sap2010:WorkflowViewState.IdRef="NSelectItem_2" ScopeIdentifier="e43ddacd-251d-4096-8772-68d1b00296ff" Version="V1">
+                                    <uix:NSelectItem.Item>
+                                      <InArgument x:TypeArguments="x:String">
+                                        <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">arrayDataToProcess[5].Trim()</mca:CSharpValue>
+                                      </InArgument>
+                                    </uix:NSelectItem.Item>
+                                    <uix:NSelectItem.Items>
+                                      <scg:List x:TypeArguments="x:String" Capacity="5">
+                                        <x:String>- Seleccione una Serie -</x:String>
+                                        <x:String>FZ</x:String>
+                                        <x:String>HZ</x:String>
+                                        <x:String>PZ</x:String>
+                                        <x:String>DZ</x:String>
+                                      </scg:List>
+                                    </uix:NSelectItem.Items>
+                                    <uix:NSelectItem.Target>
+                                      <uix:TargetAnchorable BrowserURL="http://10.141.11.53/efactura/WebSite/Consultas.aspx" DesignTimeRectangle="539, 455, 167, 19" ElementType="DropDown" FriendlyName="'- Seleccione una Serie -'" FullSelectorArgument="&lt;webctrl tableCol='1' tableRow='4' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl type='select-one' class='' tag='SELECT' aaname='' /&gt;" Guid="97a4d8fd-e696-45e4-89ab-b599e8637417" ImageBase64="" InformativeScreenshot="cc4b5bde92725ed6632f4f5e90e91304.png" ScopeSelectorArgument="&lt;html url='http://10.141.11.53/efactura/WebSite/Consultas.aspx' /&gt;" SearchSteps="Selector, FuzzySelector" Visibility="Interactive" />
+                                    </uix:NSelectItem.Target>
+                                  </uix:NSelectItem>
+                                  <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="734,22" sap2010:WorkflowViewState.IdRef="Delay_9" />
+                                  <uix:NSelectItem DisplayName="Select Item 'Seleccione su consulta'" sap:VirtualizedContainerService.HintSize="734,156" sap2010:WorkflowViewState.IdRef="NSelectItem_3" ScopeIdentifier="e43ddacd-251d-4096-8772-68d1b00296ff" Version="V1">
+                                    <uix:NSelectItem.Item>
+                                      <InArgument x:TypeArguments="x:String">
+                                        <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">dicConfig["ConsultaFolio"].ToString().Trim()</mca:CSharpValue>
+                                      </InArgument>
+                                    </uix:NSelectItem.Item>
+                                    <uix:NSelectItem.Items>
+                                      <scg:List x:TypeArguments="x:String" Capacity="7">
+                                        <x:String>Seleccione su consulta</x:String>
+                                        <x:String>Consulta por Folio</x:String>
+                                        <x:String>Nómina</x:String>
+                                        <x:String>Número de Cliente</x:String>
+                                        <x:String>Fecha Documento</x:String>
+                                        <x:String>Tipo Documento</x:String>
+                                        <x:String>Orden de Trabajo</x:String>
+                                      </scg:List>
+                                    </uix:NSelectItem.Items>
+                                    <uix:NSelectItem.Target>
+                                      <uix:TargetAnchorable BrowserURL="http://10.141.11.53/efactura/WebSite/Consultas.aspx" DesignTimeRectangle="307, 555, 201, 19" ElementType="DropDown" FriendlyName="'Seleccione su consulta'" FullSelectorArgument="&lt;webctrl tableCol='1' tableRow='5' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl type='select-one' class='' tag='SELECT' aaname='' /&gt;" Guid="a8ebe919-1375-472f-9e61-c61719709e48" ImageBase64="" InformativeScreenshot="1e3ff2ee429086e3068a2d13110d197a.png" ScopeSelectorArgument="&lt;html url='http://10.141.11.53/efactura/WebSite/Consultas.aspx' /&gt;" SearchSteps="Selector, FuzzySelector" Visibility="Interactive" />
+                                    </uix:NSelectItem.Target>
+                                  </uix:NSelectItem>
+                                  <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="734,22" sap2010:WorkflowViewState.IdRef="Delay_10" />
+                                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Escriba el'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="734,216" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="e43ddacd-251d-4096-8772-68d1b00296ff" Version="V1">
+                                    <uix:NTypeInto.Target>
+                                      <uix:TargetAnchorable BrowserURL="http://10.141.11.53/efactura/WebSite/Consultas.aspx" DesignTimeRectangle="326, 388, 163, 22" ElementType="InputBox" FriendlyName="'Escriba el'" FullSelectorArgument="&lt;webctrl tableCol='1' tableRow='5' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl type='text' class='watermark' tag='INPUT' aaname='' /&gt;" Guid="74a9a1ed-79a7-48de-8fe4-0fae388a6018" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKcAAAAaCAYAAADSQkxHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMzSURBVHhe7ZXbUVtBEAWdCoGQiKLgR3GQhsIgAEVAMnK1i6aOh917ZSOk/Ziumro7+5i34Nf5fL60tKwoPZwty8rncL68vLS0LCHD4WyaR9PD2SxLD2ezLD2czbL0cDbLctVwPj09DeVwOHzcuA3H4/HT5uvr6+X5+fnP+ifBH35vCbU5nU4f2n15f3//q0f3qOEe/1vjq4fzHsXu4fweb29vX3zfq45bZI2zx3ssNZxJD+e/Q72oW4X9R8QjDx9OHHIPqc4pmGc5cKwJln2+GbjDmXb5lyX135fJz8CWd7OB2B+9Hf040H3rX6mRTfSsV+aQ91ibPzICO54jsz5Yj6zRDPxqL3uljYwpz2vO6OA7dUA3Vms88+te3b96OEeic5ymUZromcUVgnQYHD5hX91E0kfaSR8WbdYYbKaftMu+8VS4VxsgeVZzTPuZkzZqTrO4ve859+sPRqzBHjVW7Jm//qpunrnGjrHUe4BunlnjrAewJi/QjtzkL6cJZ3Cy1XySMzDIwEeNmPnY8j8qXPrZio994+M7u8cZPvAFrK1XrmEvxy14i70R5Dc7S2q+1g72hoxYjT35znAmNYebDCfYIMVGEYgNruwNZ00i47BRCPf4ZnHEwlXRNt9sVoIvh4d7aV+f2uJbh3PUtMyL9d5wcl79jBj5EuOCWvMciJEN9Ow9umLd9t4Rt3ezx0As2qv53Ww4EwLIps6aXwuVgY8aRxwUoBZjrzGzM9iKD8w9Y8EW+9ge6b6pa9jLMeEd76XqlVpPyRxrvmlzVKsav3iXs7136TPzh2ofXW4ynNUhBVLnXTrMhtRiph3202++q8XgXeoVbGZ82LFY7LsewVmNsw4jNlLPuDMnyLPMaUStHXdTrxiX9sE6SrWZ+W8N2exMnbU10odxpA/ubNUDXa4ezpmIDar7oNN6VpuejWSf87Rr84G77pNctVWxsUgWh7WFG1EHUTKuOhS5hrybMZrjFhm3fnJAKt5JqeDXs6zF1nBCtZ25cMd96kncvssaa0O/GQvrjOeq4WyaR9DD2SxLD2ezLD2czbL0cDbLMh3OlpYV5MtwtrSsJj2cLYvK+fIbvl3t8IhdX+cAAAAASUVORK5CYII=" InformativeScreenshot="14941f6efe95c27b8f8393a48a0b7a8f.png" ScopeSelectorArgument="&lt;html url='http://10.141.11.53/efactura/WebSite/Consultas.aspx' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                                    </uix:NTypeInto.Target>
+                                    <uix:NTypeInto.Text>
+                                      <InArgument x:TypeArguments="x:String">
+                                        <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25">arrayDataToProcess[6].Trim()</mca:CSharpValue>
+                                      </InArgument>
+                                    </uix:NTypeInto.Text>
+                                  </uix:NTypeInto>
+                                  <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="734,22" sap2010:WorkflowViewState.IdRef="Delay_11" />
+                                  <uix:NClick ClickType="Single" DisplayName="Click 'Generar Consulta'" sap:VirtualizedContainerService.HintSize="734,156" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e43ddacd-251d-4096-8772-68d1b00296ff" Version="V1">
+                                    <uix:NClick.Target>
+                                      <uix:TargetAnchorable BrowserURL="http://10.141.11.53/efactura/WebSite/Consultas.aspx" DesignTimeRectangle="575, 478, 127, 23" ElementType="Button" FriendlyName="'Generar Consulta'" FullSelectorArgument="&lt;webctrl id='ctl00_ContentPlaceHolder2_Btn_ejec' tableCol='1' tableRow='1' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ctl00_ContentPlaceHolder2_Btn_ejec' type='submit' class='' tag='INPUT' aaname='Generar Consulta' check:text='Generar Consulta' /&gt;" Guid="907a8876-7d2e-442f-9108-7f95504f4398" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIMAAAAbCAYAAABfqDxIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANhSURBVGhD7ZLZTawxDEZvK5QBXbAUwfZABWwtsHbATgeA2N7mmU0IxC4QPczVifgij0mGINC9oD8jHf127DifPf7Tfvu1Wq1Kw6nLUInEZZiYmKg0lOQyvL6+VhpGdhleXl4qDSO7DM/Pz5WGUZehEskuw9PTU6VhZJfh8fHxU2xvb7d7eno6OD4+Tub+Fvr6+n5UP+Pj4+2hoaFk7DvILsPDw0Mxs7OzYVhHR0ddz34TaB8bG4v+1tbWf+8HPYODg8FeXl4OenzOV8guw/39fRGHh4dBFMPyMYSzFP78p6Ohp87Bn/8rrC4tg8/5CtlluLu7K2JmZqbd29ubjHm0OGJzczPGqDE6OtoRt3fJtTFqKYavu+jhzNdSvjQovrS0FOsItKTOPV6Tjdk3wM7Iz8G+RZ56AP586mDzxc+9y12d2fdKyS7D7e1tERKYinkQSaPYGxsbwT84OAg+4kG5Ggo2OeQuLi4Gny++crHRIZ+4raWBYquWaqcgjr5UTKiO8qhv3yRm54Iv/eTJ1hyUZ/sGq93O2s+AmPLAvldKdhlubm6KQMDAwED09/f3gxBBc5xLvPKA2PT09DsbqEltbM5VR6hZb6fgrjRK3/r6+rs88VEcvCZf12uy/aHF9yNsHtg52Fmn5imkxdYpIbsM19fXRUxNTYUGPootLCwEgR5yiJMnG2h6ZGQk1kndpSZxa8Pe3l5HHrXAxtbW1mK+x2sR3JWNNtUUti621eRr4lt9uTw7B/um5qk8O19q5HroxpeXodtwEYMobC/e020Itk4K6trB+z/K+iXL4O8Lq8Nr8nW9Jt+fhVzFus3B6vLz9Pe6vZcjuwxXV1fF8CjCdnd349n8/Hw4Q5TO1DQ2ufjk4Uu8cjWEVO7q6mrw+eLbGGho9q73dTcHOXof/Ju+Dtp9r1aT7S8Vk49Or1U6bF/Sgw22PrWI2XmWkF2Gy8vLT7GyshIEWDizOTs7Ox3xycnJGKMZ6/f397eHh4ej7+vPzc3FmPftO9Qlhm1jXlsK1RD+jtdkY/hWk+3Pz8H26bUTU5wvc1Gu8rDVI+iOzS3h25ah8vvJLsPFxUWlYWSX4fz8vNIwsstwdnZWaRjZZTg9Pa00jOwynJycVBpGdhkqzeTdMuig0lzqMlTeaLX/AlApfYOslLRFAAAAAElFTkSuQmCC" InformativeScreenshot="7b186a047de32345ef869ed0423f22a8.png" ScopeSelectorArgument="&lt;html url='http://10.141.11.53/efactura/WebSite/Consultas.aspx' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                                    </uix:NClick.Target>
+                                  </uix:NClick>
+                                  <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="734,22" sap2010:WorkflowViewState.IdRef="Delay_12" />
+                                  <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Todos NombreDocumento'" sap:VirtualizedContainerService.HintSize="734,825" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="e43ddacd-251d-4096-8772-68d1b00296ff" Timeout="30" Version="V1">
+                                    <uix:NCheckState.IfExists>
+                                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="376,609" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <uix:NClick ClickType="Single" DisplayName="Click 'Checkbox'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e43ddacd-251d-4096-8772-68d1b00296ff" Version="V1">
+                                          <uix:NClick.Target>
+                                            <uix:TargetAnchorable BrowserURL="http://10.141.11.53/efactura/WebSite/Consultas.aspx" DesignTimeRectangle="372, 728, 13, 13" ElementType="CheckBox" FriendlyName="'Checkbox'" FullSelectorArgument="&lt;webctrl tableCol='1' tableRow='1' tag='INPUT' type='checkbox' /&gt;" FuzzySelectorArgument="&lt;webctrl class='' aaname='Todos' tag='INPUT' type='checkbox' /&gt;" Guid="158c38cf-81f8-40c2-90d5-e97d9e518360" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAwSURBVDhPY8jOzP5PKaauIQUFBSRjrIaQAkYNwQSjhmCCIWAIqRjDEEowFQzJ/g8AuVVeKhnPGkAAAAAASUVORK5CYII=" InformativeScreenshot="bd9f6c718727aa36adb97a82e157a579.png" ScopeSelectorArgument="&lt;html url='http://10.141.11.53/efactura/WebSite/Consultas.aspx' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                                          </uix:NClick.Target>
+                                        </uix:NClick>
+                                        <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_13" />
+                                        <uix:NClick ClickType="Single" DisplayName="Click 'Descargar'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e43ddacd-251d-4096-8772-68d1b00296ff" Version="V1">
+                                          <uix:NClick.Target>
+                                            <uix:TargetAnchorable BrowserURL="http://10.141.11.53/efactura/WebSite/Consultas.aspx" DesignTimeRectangle="578, 862, 89, 26" ElementType="Button" FriendlyName="'Descargar'" FullSelectorArgument="&lt;webctrl id='ctl00_ContentPlaceHolder2_Btn_generaZip' tableCol='1' tableRow='1' tag='INPUT' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ctl00_ContentPlaceHolder2_Btn_generaZip' class='' aaname='Descargar' tag='INPUT' type='submit' check:text='Descargar' /&gt;" Guid="3f3d5289-fc7f-4240-8b34-c9ac59cdc061" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF0AAAAeCAYAAABOvRIBAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKsSURBVGhD7ZTpqSJBFIUnFcMwDDUJ9ZcRuIXgGoJ7CO6moKi4L6hoDg6n4TS3y64ZWqaeMFbBh3XXuve85v162vPjx4r+geOKnkqlLIbh8Yj+eDwshtCKfr/fLYbQin673SyGsKJ/AK3o1+vVYgit6JfLxWIIrejn8zkwnU7nGQqFXsjn877534oR0SeTicdvhfeiFf10OgWGoo/HY1+/9H0zWtGPx2Ng2u22K7oag79arbp2Mpl0fCAWi3lyw+GwG0OejOVyOTeGPBmjH8ie6MH3WIMZZS5Ab9bAZhzQjx0Q44x+u/4NreiHwyEwrVbLGWQ0Gr3EMGSlUnHuFI4xLAFRcKdAjCEPfXFHvayTuRQNd7wv65Aj6wDmYT770sYv+v0pl73fQSv6fr8PTLPZdAYaDocvMYrOezabdWNcBHf4dT2i0agjoOpX4Rx8DzWoVePyDXUmCXL5rpz1XbSi73a7wHCZwWDwEoMfcdyxIGwV5iYSCV8/hIMwtCX8YwHk4bdcLjsx9IOPuZyTNpC9GZf90AMx9FRrg6IVfbvdBqbRaDgD9ft9j5+D0obomUzGk6MDCwPesbyaA9Af7/jZFJ0xvznlTOo70lZ3eQet6JvNJjD1et0ZqNfrefzwYSHauMNHGwthady5oIzRLpVKnjr0YR38iNMvbdSjL+sARcadfWnLGbiTboZ30Iq+Xq8DwwFV0un0S248HvfkyBgEoR93GUMvvzrpxz0SiThvIIZf2MwF+DCYjxje4ZxyD8Tg5xzFYtHxy15B0Yq+Wq2+CogKQf1i/5qvFL3b7Tpfa61Wc2x+vfCruSbQir5cLv9rCoWC+y8EwPbLM4FW9MViYTGEVvT5fG4xhBX9A2hFn81mFkNoRZ9OpxZDaEW3mIXHFd2enztW9B8/z+dvnqtZCnIw0QIAAAAASUVORK5CYII=" InformativeScreenshot="0d3ce47b1abf51b0cfebac680f7ed6e6.png" ScopeSelectorArgument="&lt;html url='http://10.141.11.53/efactura/WebSite/Consultas.aspx' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                                          </uix:NClick.Target>
+                                        </uix:NClick>
+                                        <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_10">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Boolean">
+                                              <mca:CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_16">boolDownloadFacturaElectronica</mca:CSharpReference>
+                                            </OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                      </Sequence>
+                                    </uix:NCheckState.IfExists>
+                                    <uix:NCheckState.IfNotExists>
+                                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="304,256" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_11">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Boolean">
+                                              <mca:CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_17">boolDownloadFacturaElectronica</mca:CSharpReference>
+                                            </OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_12">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:String">
+                                              <mca:CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_18">strObservaciones</mca:CSharpReference>
+                                            </OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:String">
+                                              <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_26">"No se detecto que la página generara la tabla con las facturas a descargar, es posible que el folio: " + arrayDataToProcess[6].Trim() + " no tenga archivos asociados o que la pagina no haya cargado correctamente"</mca:CSharpValue>
+                                            </InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                      </Sequence>
+                                    </uix:NCheckState.IfNotExists>
+                                    <uix:NCheckState.Target>
+                                      <uix:TargetAnchorable BrowserURL="http://10.141.11.53/efactura/WebSite/Consultas.aspx" DesignTimeRectangle="353, 715, 539, 174" ElementType="Cell" FriendlyName="'Todos NombreDocumento'" FullSelectorArgument="&lt;webctrl parentid='ctl00_ContentPlaceHolder2_Pnl_ConsultasDocum' tableCol='1' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableCol='1' tableRow='1' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='ctl00_ContentPlaceHolder2_Pnl_ConsultasDocum' tag='TABLE' /&gt;&lt;webctrl type='' class='' tag='TD' aaname='    Todos             NombreDocumento    Orden    TipoCFD    NombreCliente    Fecha     pdfxml1FZ000000763841149388FACTURAMEAD JOHNSON NUTRICIONALES DE MEXICO S DE RL DE CV20220216     ' /&gt;" Guid="5fa22718-8b52-473b-b139-c638a390d63f" ImageBase64="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" InformativeScreenshot="63e477a5bb432d36ba5e28928793d194.png" ScopeSelectorArgument="&lt;html url='http://10.141.11.53/efactura/WebSite/Consultas.aspx' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive" />
+                                    </uix:NCheckState.Target>
+                                  </uix:NCheckState>
+                                </Sequence>
+                              </ActivityAction>
+                            </uix:NApplicationCard.Body>
+                            <uix:NApplicationCard.TargetApp>
+                              <uix:TargetApp Area="1280, 78, 1280, 906" BrowserType="IE" IconBase64="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" InformativeScreenshot="3b5c86eafaf7448584237bb093b27a89.png" Selector="&lt;html url='http://10.141.11.53/efactura/WebSite/Consultas.aspx' /&gt;" Url="http://10.141.11.53/efactura/WebSite/Consultas.aspx" />
+                            </uix:NApplicationCard.TargetApp>
+                          </uix:NApplicationCard>
+                        </TryCatch.Try>
+                        <TryCatch.Catches>
+                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,452" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ActivityAction x:TypeArguments="s:Exception">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                              </ActivityAction.Argument>
+                              <Sequence sap:VirtualizedContainerService.HintSize="376,383" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_19">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:Boolean">
+                                      <mca:CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_25">boolDownloadFacturaElectronica</mca:CSharpReference>
+                                    </OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_20">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">
+                                      <mca:CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_26">strObservaciones</mca:CSharpReference>
+                                    </OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_36">"The virtual assistant could not go to download file, validate if web page is working ***** System Error: " + exception.ToString()</mca:CSharpValue>
+                                    </InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Error">
+                                  <ui:LogMessage.Message>
+                                    <InArgument x:TypeArguments="x:Object">
+                                      <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_37">"The virtual assistant could not go to download file, validate if web page is working. Error is in DownloadFacturaElectronica flow -&gt; Retry Scope go to Download Factura ***** System Error: " + exception.ToString()</mca:CSharpValue>
+                                    </InArgument>
+                                  </ui:LogMessage.Message>
+                                </ui:LogMessage>
+                              </Sequence>
+                            </ActivityAction>
+                          </Catch>
+                        </TryCatch.Catches>
+                      </TryCatch>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:RetryScope.ActivityBody>
+                <ui:RetryScope.Condition>
+                  <ActivityFunc x:TypeArguments="x:Boolean" />
+                </ui:RetryScope.Condition>
+                <ui:RetryScope.NumberOfRetries>
+                  <InArgument x:TypeArguments="x:Int32">
+                    <mca:CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">Int32.Parse(dicConfig["TryErrorNumber"].ToString())</mca:CSharpValue>
+                  </InArgument>
+                </ui:RetryScope.NumberOfRetries>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:RetryScope>
+              <FlowStep.Next>
+                <FlowDecision x:Name="__ReferenceID2" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+                  <FlowDecision.Condition>
+                    <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_27">boolDownloadFacturaElectronica</mca:CSharpValue>
+                  </FlowDecision.Condition>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <av:Point x:Key="ShapeLocation">270.5,456.5</av:Point>
+                      <av:Size x:Key="ShapeSize">79,87</av:Size>
+                      <av:PointCollection x:Key="TrueConnector">270.5,500 200,500</av:PointCollection>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <FlowDecision.True>
+                    <FlowStep x:Name="__ReferenceID3">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">0,474.5</av:Point>
+                          <av:Size x:Key="ShapeSize">200,51</av:Size>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:RetryScope DisplayName="Retry Scope download file" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="RetryScope_3">
+                        <ui:RetryScope.ActivityBody>
+                          <ActivityAction>
+                            <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="476,706" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,614" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                                <TryCatch.Try>
+                                  <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1084,1513" sap2010:WorkflowViewState.IdRef="ForEach`1_1">
+                                    <ui:ForEach.Body>
+                                      <ActivityAction x:TypeArguments="x:Object">
+                                        <ActivityAction.Argument>
+                                          <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
+                                        </ActivityAction.Argument>
+                                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1048,1390" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Guardar'" sap:VirtualizedContainerService.HintSize="1006,1298" sap2010:WorkflowViewState.IdRef="NCheckState_3" Timeout="30" Version="V1">
+                                            <uix:NCheckState.IfExists>
+                                              <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="476,1082" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" ContinueOnError="False" DisplayName="Use Browser IE: iexplore.exe" sap:VirtualizedContainerService.HintSize="434,724" sap2010:WorkflowViewState.IdRef="NApplicationCard_7" InteractionMode="Simulate" OpenMode="Never" ScopeGuid="d0267f87-6eb1-4503-b463-8e7379679aa0" Version="V1">
+                                                  <uix:NApplicationCard.Body>
+                                                    <ActivityAction x:TypeArguments="x:Object">
+                                                      <ActivityAction.Argument>
+                                                        <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                                                      </ActivityAction.Argument>
+                                                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,508" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <uix:NClick ClickType="Single" ContinueOnError="False" DisplayName="Click '6'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_8" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d0267f87-6eb1-4503-b463-8e7379679aa0" Version="V1">
+                                                          <uix:NClick.Target>
+                                                            <uix:TargetAnchorable DesignTimeRectangle="987, 957, 18, 25" ElementType="Button" FriendlyName="'6'" FullSelectorArgument="&lt;wnd aaname='Notificación' cls='DirectUIHWND' /&gt;&lt;ctrl automationid='IENotificationBar' /&gt;&lt;ctrl name='Guardar' role='split button' /&gt;&lt;ctrl name='6' role='drop down button' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Notificación' cls='DirectUIHWND' /&gt;&lt;ctrl automationid='IENotificationBar' /&gt;&lt;ctrl name='Guardar' role='split button' /&gt;&lt;ctrl name='6' role='drop down button' automationid='' check:text='6' /&gt;" Guid="4f341873-69a3-4d4e-9b31-3d865a1e370c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABYAAAAdCAYAAACuc5z4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACjSURBVEhL1ZZbCoQwEARz/7PkWibmaW6QpRsCyeKCMjqwA0VhK/Wt6S/de2FrbX+Scaa1xgGWsoSP4+AAS9EJ11o5wFJ0wqUUDrAUnXDOmQMsRSecUuIAzxhjfvL97eBSGNyJgiUcY+QAnzFHz97P3AqDK1GwhEMIHGApOuF93znAUnTC3nsOsBSdsHOOAyxFJ7xtGwdYik4YD08y7t9+sXr/ACNWCkhWfCR6AAAAAElFTkSuQmCC" InformativeScreenshot="ff617e3192297186d5048aa44b978782.png" ScopeSelectorArgument="&lt;wnd app='iexplore.exe' cls='IEFrame' title='http://10.141.11.53/efactura/WebSite/Consultas.aspx - Internet E*' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Visibility="Interactive" />
+                                                          </uix:NClick.Target>
+                                                        </uix:NClick>
+                                                        <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_14" />
+                                                        <uix:NClick ClickType="Single" ContinueOnError="False" DisplayName="Click 'Guardar'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_9" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d0267f87-6eb1-4503-b463-8e7379679aa0" Version="V1">
+                                                          <uix:NClick.Target>
+                                                            <uix:TargetAnchorable DesignTimeRectangle="904, 957, 104, 25" ElementType="Button" FriendlyName="'Guardar'" FullSelectorArgument="&lt;wnd aaname='Notificación' cls='DirectUIHWND' /&gt;&lt;ctrl automationid='IENotificationBar' /&gt;&lt;ctrl name='Guardar' role='split button' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Notificación' cls='DirectUIHWND' /&gt;&lt;ctrl automationid='IENotificationBar' /&gt;&lt;ctrl name='Guardar' role='split button' automationid='' check:text='Guardar' /&gt;" Guid="7a0908d2-5372-49d9-abee-c30d7522f830" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGwAAAAdCAYAAABPGImpAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH0SURBVGhD7ZXtcYMwDIY9lBkHDwPMEviRQUz2yPfnBqptIDVUtMFVcHKR7547LDmieZ9ABfB6q8XC3myhwpbLJfMCYGtU2O12YwKgym6ysOv1ygRAlR0Lm4lowi6XCxMAVXYsbCaiCTufz0wAVNmxsJmIJux0OtGyKiARAkRHUsAKO0dCBUokUKyw3nOhyi6uMCerH2ClFFT+GVI+UNjxeCSihiIRoCqs9yxaYTXWey5Ydve3CsLwbEc8YbV9uszThPUcw3D7+0p5X1BVvTNKJabeznb3ac4lRTF5RlP7P2PZ3e/vgZ3rmCzscDjQUOcgZQ51u69z2f7BEvLa1koTXHeN7bG6vRYg89rrmae4bM4295g6g4bfsvNlYX2fuMLML7js1YfB+eEO9qXyvujIZwY/iqAZRPyV3SOyLJOF7fd7IkpIbTB6rDbse3ttZadQurqGXI58xp4zwjQ2/9EZRFBlF1HYHrR7RXWhWfywbIgC0rLtlWnzFNieve5EuODHwrb77xnN/abOoCGasN1uR8vCiuheS+Z/R6bxXpq6IDNtexoyI9PVpambp6OpL7wzP2fILAubQQBVdvGFfQjRhG23WyYAquxY2ExEE7bZbJgAqLJjYTMRTdh6vWYCoMqOhc1ENGFMfLCFCuP1uouFvdUC+AJzKGGAleF2fgAAAABJRU5ErkJggg==" InformativeScreenshot="126146b1f6fd7fced04b27fbe769cd22.png" ScopeSelectorArgument="&lt;wnd app='iexplore.exe' cls='IEFrame' title='http://10.141.11.53/efactura/WebSite/Consultas.aspx - Internet E*' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Visibility="Interactive" />
+                                                          </uix:NClick.Target>
+                                                        </uix:NClick>
+                                                      </Sequence>
+                                                    </ActivityAction>
+                                                  </uix:NApplicationCard.Body>
+                                                  <uix:NApplicationCard.TargetApp>
+                                                    <uix:TargetApp Area="1280, 78, 1280, 906" BrowserType="IE" IconBase64="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" InformativeScreenshot="1e76d9df226c8384a40c728e5df03d44.png" Selector="&lt;html url='http://10.141.11.53/efactura/WebSite/Consultas.aspx' /&gt;" Url="http://10.141.11.53/efactura/WebSite/Consultas.aspx" />
+                                                  </uix:NApplicationCard.TargetApp>
+                                                </uix:NApplicationCard>
+                                                <Assign sap:VirtualizedContainerService.HintSize="434,61" sap2010:WorkflowViewState.IdRef="Assign_16">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:String">
+                                                      <mca:CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_22">strObservaciones</mca:CSharpReference>
+                                                    </OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:String">
+                                                      <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_31">null</mca:CSharpValue>
+                                                    </InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                                <Assign sap:VirtualizedContainerService.HintSize="434,61" sap2010:WorkflowViewState.IdRef="Assign_13">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Boolean">
+                                                      <mca:CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_19">boolDownloadFacturaElectronica</mca:CSharpReference>
+                                                    </OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                                <ui:Break sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Break_1" />
+                                              </Sequence>
+                                            </uix:NCheckState.IfExists>
+                                            <uix:NCheckState.IfNotExists>
+                                              <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="476,824" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" ContinueOnError="False" DisplayName="Use Browser IE: iexplore.exe" sap:VirtualizedContainerService.HintSize="434,466" sap2010:WorkflowViewState.IdRef="NApplicationCard_6" InteractionMode="Simulate" OpenMode="Never" ScopeGuid="a556d1f3-f105-4149-8a0f-31d677107981" Version="V1">
+                                                  <uix:NApplicationCard.Body>
+                                                    <ActivityAction x:TypeArguments="x:Object">
+                                                      <ActivityAction.Argument>
+                                                        <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                                                      </ActivityAction.Argument>
+                                                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,250" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <uix:NClick ClickType="Single" ContinueOnError="False" DisplayName="Click 'Descargar'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a556d1f3-f105-4149-8a0f-31d677107981" Version="V1">
+                                                          <uix:NClick.Target>
+                                                            <uix:TargetAnchorable BrowserURL="http://10.141.11.53/efactura/WebSite/Consultas.aspx" DesignTimeRectangle="578, 862, 89, 26" ElementType="Button" FriendlyName="'Descargar'" FullSelectorArgument="&lt;webctrl id='ctl00_ContentPlaceHolder2_Btn_generaZip' tableCol='1' tableRow='1' tag='INPUT' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ctl00_ContentPlaceHolder2_Btn_generaZip' class='' aaname='Descargar' tag='INPUT' type='submit' check:text='Descargar' /&gt;" Guid="dd2cd1ae-7007-4ea9-bdcd-3213a1c23710" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF0AAAAeCAYAAABOvRIBAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKsSURBVGhD7ZTpqSJBFIUnFcMwDDUJ9ZcRuIXgGoJ7CO6moKi4L6hoDg6n4TS3y64ZWqaeMFbBh3XXuve85v162vPjx4r+geOKnkqlLIbh8Yj+eDwshtCKfr/fLYbQin673SyGsKJ/AK3o1+vVYgit6JfLxWIIrejn8zkwnU7nGQqFXsjn877534oR0SeTicdvhfeiFf10OgWGoo/HY1+/9H0zWtGPx2Ng2u22K7oag79arbp2Mpl0fCAWi3lyw+GwG0OejOVyOTeGPBmjH8ie6MH3WIMZZS5Ab9bAZhzQjx0Q44x+u/4NreiHwyEwrVbLGWQ0Gr3EMGSlUnHuFI4xLAFRcKdAjCEPfXFHvayTuRQNd7wv65Aj6wDmYT770sYv+v0pl73fQSv6fr8PTLPZdAYaDocvMYrOezabdWNcBHf4dT2i0agjoOpX4Rx8DzWoVePyDXUmCXL5rpz1XbSi73a7wHCZwWDwEoMfcdyxIGwV5iYSCV8/hIMwtCX8YwHk4bdcLjsx9IOPuZyTNpC9GZf90AMx9FRrg6IVfbvdBqbRaDgD9ft9j5+D0obomUzGk6MDCwPesbyaA9Af7/jZFJ0xvznlTOo70lZ3eQet6JvNJjD1et0ZqNfrefzwYSHauMNHGwthady5oIzRLpVKnjr0YR38iNMvbdSjL+sARcadfWnLGbiTboZ30Iq+Xq8DwwFV0un0S248HvfkyBgEoR93GUMvvzrpxz0SiThvIIZf2MwF+DCYjxje4ZxyD8Tg5xzFYtHxy15B0Yq+Wq2+CogKQf1i/5qvFL3b7Tpfa61Wc2x+vfCruSbQir5cLv9rCoWC+y8EwPbLM4FW9MViYTGEVvT5fG4xhBX9A2hFn81mFkNoRZ9OpxZDaEW3mIXHFd2enztW9B8/z+dvnqtZCnIw0QIAAAAASUVORK5CYII=" InformativeScreenshot="0d3ce47b1abf51b0cfebac680f7ed6e6.png" ScopeSelectorArgument="&lt;html url='http://10.141.11.53/efactura/WebSite/Consultas.aspx' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                                                          </uix:NClick.Target>
+                                                        </uix:NClick>
+                                                      </Sequence>
+                                                    </ActivityAction>
+                                                  </uix:NApplicationCard.Body>
+                                                  <uix:NApplicationCard.TargetApp>
+                                                    <uix:TargetApp Area="1280, 78, 1280, 906" BrowserType="IE" IconBase64="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" InformativeScreenshot="6b949f420216f1bf886b86a2202ddc5f.png" Selector="&lt;html url='http://10.141.11.53/efactura/WebSite/Consultas.aspx' /&gt;" Url="http://10.141.11.53/efactura/WebSite/Consultas.aspx" />
+                                                  </uix:NApplicationCard.TargetApp>
+                                                </uix:NApplicationCard>
+                                                <Assign sap:VirtualizedContainerService.HintSize="434,61" sap2010:WorkflowViewState.IdRef="Assign_14">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Boolean">
+                                                      <mca:CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_20">boolDownloadFacturaElectronica</mca:CSharpReference>
+                                                    </OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                                <Assign sap:VirtualizedContainerService.HintSize="434,61" sap2010:WorkflowViewState.IdRef="Assign_17">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:String">
+                                                      <mca:CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_23">strObservaciones</mca:CSharpReference>
+                                                    </OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:String">
+                                                      <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_32">"Error **** The virtual assistant could not download Facturas of the Folio: " + arrayDataToProcess[6].Trim()</mca:CSharpValue>
+                                                    </InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                                <ui:Continue sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Continue_1" />
+                                              </Sequence>
+                                            </uix:NCheckState.IfNotExists>
+                                            <uix:NCheckState.Target>
+                                              <uix:TargetAnchorable DesignTimeRectangle="904, 957, 104, 25" ElementType="Button" FriendlyName="'Guardar'" FullSelectorArgument="&lt;wnd aaname='Notificación' cls='DirectUIHWND' /&gt;&lt;ctrl automationid='IENotificationBar' /&gt;&lt;ctrl name='Guardar' role='split button' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Notificación' cls='DirectUIHWND' /&gt;&lt;ctrl automationid='IENotificationBar' /&gt;&lt;ctrl name='Guardar' role='split button' automationid='' check:text='Guardar' /&gt;" Guid="b7783b20-013a-49d3-bd10-e5a4d61f8de7" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGwAAAAdCAYAAABPGImpAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALRSURBVGhD7ZVZctNAEIZbj2Ev9n0pthPIx7HuYvsibJEKzL4XAV6l3MNJHDvLDX7UIyvITRuSoV1gmIevSjP9exT/n6UQvt5FYHEgfLmDwOJA+Hwbkn6/H/gL0NwQVm5BwuHd3d2AB1bdOWGKG8Knm5BweGdnJ+CBVXdOmOKG8PEGJEGYP6bCFDeED9ch4fD29nbAA6vunDDFDeH9NUiCMH9MhSluCO+uQsLhra2tgAdW3TlhihvC2yuQBGH+mApT3BDeXIaEw+Px2JbVHlpRhKim1cOqljMhQxK10FvVZvPFqjsnTHFDeH0JEnNhTtZ0gVmSIGtmTPlHhCluCK8uQsLh0WhkRIFeK0KSabN5MRFWaLP5onW391ZRkNkaJ0xxQ3h5ARJTYQU/XeXTpM0cstzpdZY0vmCSTWWSpFXuT85296lyrV7vwGdUe7/PrO727t9Ay9U4YYobwovzkHB4c3PThqKLOO6imKyLbjz5g2N0C95Ly+Lqa22t7fN1hLhbNGblU5xW2eoeBz3Dhp9115SlzZs4YYobwvNzkJgLK3/B6dS+LK5ZrlinSeOLzviM+FF4nWHEr7rbjyzGCVPcEJ6dhYTDw+HQiBRtLiaftSfnjXXOsttI3X6ObjzjM5wrheXa+fs9wwir7pwwxQ3h6RlIbIUNkbtXVF0a0yyLS4zQTieztF09BTzj61qEK35W2bz+fkZ1v4OeYYOpMMUNoX8aEg5vbGzYsswi6tdS+b+jk+uzdtsV2cl5lqNTynT7cblfPh3V/nIj8+MZcafjd4YBVt05YYobwpNTkMxF2H+CqTDFDeHxSUg4vL6+HvDAqjsnTHFDyE5AEoT5YypMcUNIj0PC4bW1tYAHVt05YYobwvIxSIIwf0yFKW4Ij45CwuHBYBDwwKo7J0xxQ3h4BJIgzB9TYYobwoPDkHA48OfR3BDuH0JgcSDcW0JgUVjCN9QhKJj6rABvAAAAAElFTkSuQmCC" InformativeScreenshot="6637e1a32336178ff940d23d062f244f.png" ScopeSelectorArgument="&lt;wnd app='iexplore.exe' cls='IEFrame' title='http://10.141.11.53/efactura/WebSite/Consultas.aspx - Internet E*' /&gt;" SearchSteps="Selector, FuzzySelector" Visibility="Interactive" />
+                                            </uix:NCheckState.Target>
+                                          </uix:NCheckState>
+                                        </Sequence>
+                                      </ActivityAction>
+                                    </ui:ForEach.Body>
+                                    <ui:ForEach.Values>
+                                      <InArgument x:TypeArguments="sc:IEnumerable">
+                                        <mca:CSharpValue x:TypeArguments="sc:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_30">Enumerable.Range(1,3)</mca:CSharpValue>
+                                      </InArgument>
+                                    </ui:ForEach.Values>
+                                  </ui:ForEach>
+                                </TryCatch.Try>
+                                <TryCatch.Catches>
+                                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,452" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ActivityAction x:TypeArguments="s:Exception">
+                                      <ActivityAction.Argument>
+                                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                      </ActivityAction.Argument>
+                                      <Sequence sap:VirtualizedContainerService.HintSize="376,383" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Boolean">
+                                              <mca:CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_21">boolDownloadFacturaElectronica</mca:CSharpReference>
+                                            </OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:String">
+                                              <mca:CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_24">strObservaciones</mca:CSharpReference>
+                                            </OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:String">
+                                              <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_34">"Error: No se pudo descargar las facturas del folio : " + arrayDataToProcess[6].Trim() + "validar que la ventana de guardar como se haya generado ***** System Error: " + exception.ToString()</mca:CSharpValue>
+                                            </InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error">
+                                          <ui:LogMessage.Message>
+                                            <InArgument x:TypeArguments="x:Object">
+                                              <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_33">"Error: No se pudo descargar las facturas del folio : " + arrayDataToProcess[6].Trim() + "validar que la ventana de guardar como se haya generado ***** System Error: " + exception.ToString()</mca:CSharpValue>
+                                            </InArgument>
+                                          </ui:LogMessage.Message>
+                                        </ui:LogMessage>
+                                      </Sequence>
+                                    </ActivityAction>
+                                  </Catch>
+                                </TryCatch.Catches>
+                              </TryCatch>
+                            </Sequence>
+                          </ActivityAction>
+                        </ui:RetryScope.ActivityBody>
+                        <ui:RetryScope.Condition>
+                          <ActivityFunc x:TypeArguments="x:Boolean" />
+                        </ui:RetryScope.Condition>
+                        <ui:RetryScope.NumberOfRetries>
+                          <InArgument x:TypeArguments="x:Int32">
+                            <mca:CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_28">Int32.Parse(dicConfig["TryErrorNumber"].ToString())</mca:CSharpValue>
+                          </InArgument>
+                        </ui:RetryScope.NumberOfRetries>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:RetryScope>
+                    </FlowStep>
+                  </FlowDecision.True>
+                </FlowDecision>
+              </FlowStep.Next>
+            </FlowStep>
+          </FlowDecision.True>
+        </FlowDecision>
+      </FlowStep.Next>
+    </FlowStep>
+    <x:Reference>__ReferenceID0</x:Reference>
+    <x:Reference>__ReferenceID1</x:Reference>
+    <x:Reference>__ReferenceID2</x:Reference>
+    <x:Reference>__ReferenceID3</x:Reference>
+  </Flowchart>
+</Activity>
