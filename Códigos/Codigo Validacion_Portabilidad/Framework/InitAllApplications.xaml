@@ -1,9 +1,10 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="InitAllApplications" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="InitAllApplications" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="out_BoolValidateInitApplications" Type="OutArgument(x:Boolean)" />
   </x:Members>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1257,641</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1213,1253</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -26,6 +27,11 @@
       <x:String>UiPath.Platform.ObjectLibrary</x:String>
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -58,16 +64,24 @@
       <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="376,225" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="602,1188" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1">
+    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="560,91" sap2010:WorkflowViewState.IdRef="LogMessage_1">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
           <mca:CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">LogLevel.Trace</mca:CSharpValue>
@@ -79,5 +93,182 @@
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
+    <Sequence DisplayName="iniciar sesión pajarito" sap:VirtualizedContainerService.HintSize="560,934" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="518,842" sap2010:WorkflowViewState.IdRef="RetryScope_1">
+        <ui:RetryScope.ActivityBody>
+          <ActivityAction>
+            <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="476,668" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,576" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                <TryCatch.Try>
+                  <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Chrome: Google" sap:VirtualizedContainerService.HintSize="910,1255" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="6eed958c-ebcb-4d0f-a7a0-532bcc90f44e" Version="V2">
+                    <uix:NApplicationCard.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="876,1039" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NGoToUrl DisplayName="Go To URL" sap:VirtualizedContainerService.HintSize="834,81" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Version="V1">
+                            <uix:NGoToUrl.Url>
+                              <InArgument x:TypeArguments="x:String">
+                                <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">in_Config["LinkPajarito"].ToString()</mca:CSharpValue>
+                              </InArgument>
+                            </uix:NGoToUrl.Url>
+                          </uix:NGoToUrl>
+                          <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Consultar'" sap:VirtualizedContainerService.HintSize="834,824" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="6eed958c-ebcb-4d0f-a7a0-532bcc90f44e" Timeout="20" Version="V1">
+                            <uix:NCheckState.IfExists>
+                              <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="476,608" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Chrome: Consulta Portados Intranet" sap:VirtualizedContainerService.HintSize="434,415" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="960173b8-e169-44ae-9cb3-c5a5220dda35" Version="V2">
+                                  <uix:NApplicationCard.Body>
+                                    <ActivityAction x:TypeArguments="x:Object">
+                                      <ActivityAction.Argument>
+                                        <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                                      </ActivityAction.Argument>
+                                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,199" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:Activate DelayBefore="{x:Null}" DelayMS="{x:Null}" DisplayName="Activate 'INPUT  btnConsultar'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Activate_1">
+                                          <ui:Activate.Target>
+                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="538bfc36-62d5-4ea4-8146-62ad14b6fb36" InformativeScreenshot="2412cef909f3ee6d95882f31eb5eca12" Selector="&lt;webctrl id='btnCancelar' tag='INPUT' type='submit' /&gt;">
+                                              <ui:Target.TimeoutMS>
+                                                <InArgument x:TypeArguments="x:Int32" />
+                                              </ui:Target.TimeoutMS>
+                                              <ui:Target.WaitForReady>
+                                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                                              </ui:Target.WaitForReady>
+                                            </ui:Target>
+                                          </ui:Activate.Target>
+                                        </ui:Activate>
+                                      </Sequence>
+                                    </ActivityAction>
+                                  </uix:NApplicationCard.Body>
+                                  <uix:NApplicationCard.TargetApp>
+                                    <uix:TargetApp Area="1272, -8, 1296, 1000" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="e9eff81508a0e0ecf3dd86cd9c488ce9.png" Selector="&lt;html app='chrome.exe' title='Consulta Portados Intranet' /&gt;" Url="http://132.147.170.110:8080/Consulta_Portados.aspx" />
+                                  </uix:NApplicationCard.TargetApp>
+                                </uix:NApplicationCard>
+                                <Assign sap:VirtualizedContainerService.HintSize="434,61" sap2010:WorkflowViewState.IdRef="Assign_1">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:Boolean">
+                                      <mca:CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">out_BoolValidateInitApplications</mca:CSharpReference>
+                                    </OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </uix:NCheckState.IfExists>
+                            <uix:NCheckState.IfNotExists>
+                              <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="304,217" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_2">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:Boolean">
+                                      <mca:CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">out_BoolValidateInitApplications</mca:CSharpReference>
+                                    </OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <Throw sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Throw_1">
+                                  <InArgument x:TypeArguments="s:Exception">
+                                    <mca:CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">new BusinessRuleException("No fué posible acceder al portal pajarito")</mca:CSharpValue>
+                                  </InArgument>
+                                </Throw>
+                              </Sequence>
+                            </uix:NCheckState.IfNotExists>
+                            <uix:NCheckState.Target>
+                              <uix:TargetAnchorable BrowserURL="http://132.147.170.110:8080/Consulta_Portados.aspx" DesignTimeRectangle="366, 402, 100, 21" ElementType="Button" FriendlyName="'Consultar'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='submit' class='' aaname='Consultar' check:text='Consultar' /&gt;" Guid="4d6fef29-bbb5-4a1e-a13c-bdf3755d0fbd" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGgAAAAZCAYAAADdYmvFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG9SURBVGhD7ZRBTsNADEVzRA4Ed+AE7JF6AxaIPZuuWGVBEaiVAClCLZQCg37Fr1zXSahIpg6ypScY253M+DUt7h6qFPglBDlnI6goisARIcg5tYKOjsfBAQlBzglBzskqaDJ7TTIeq/d0claavbk5HU3S4u3T1ZlAFkG4MC6OAWAQyHEgMndILEHnl9NU3i92enOSRdC4fEmrj6/1ha26B7QgnBVnxltv9eeid0HW29OE/BnUUlFD7uZ2/tORtgbIITPkM7UAfS5ZH13NzH3Yw2Ae++NLiOD5uxLbuyB5cf501EEBlMJLX1w/beoI5K1+rDk0/QboczQJQk1/nv11dSkI665wI4h98oI6h7+/EYhgjuhzcODIoabrWoDeh8G6PktX9C5ID8LqAdZA9NDaBHEPGXzb9F77CmI/99T1wQoCOLwcrAUHZAlirk2QhDX2/1VQ23rQgvQwkONAZK5NQFPdegb6udZ1DphrgP8piGsthHXkEawPWhDhpRi8bF2PlMFak0BKYOjPo48xfV5uCdOC+DwE9+HzENV8tYb9/0JQsD8hyDkhyDkhyDmtggIfhCDn7AgKfBKCXFOlb8VUKSdli6B0AAAAAElFTkSuQmCC" InformativeScreenshot="e9101dffdd9613987eb17d73762a3dbd.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Consulta Portados Intranet' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive" />
+                            </uix:NCheckState.Target>
+                          </uix:NCheckState>
+                        </Sequence>
+                      </ActivityAction>
+                    </uix:NApplicationCard.Body>
+                    <uix:NApplicationCard.TargetApp>
+                      <uix:TargetApp Area="1272, -8, 1296, 1000" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARHSURBVFhHvZddbBRVFMf7YrAq+OSbD6Kgb0qUUh60xq9VtA8k1EJrH1CsGIM+GLUmBA0kFi0WSMCHLcVCTMO2GmjFCiUFpH60sUjMEtIGLaAWama32w92dt2vOf7PndPd3M7sdmobf8k/M/fec8//zJ07s7NFXrEsawlUnclkmqEBaAxKisLS14yYKo6VafMHyR5A4hYoTh5BbAw6iLnLJc3cQZ7bkKQRSttp5w7mpqBdKKRY0noDE+7HxEuSZ94gVxA5l0n6wiDwYUwIyVyN9I0RMls/p4l33qDwi8+R4VtNxjOlFF7no/G3XyfzcBOlR/6UaB3kNHBYITbuyJU7zNOj12ly+/tkPL2KjKdKCgsxkx++p+bMhIvIuxIYuB0BjmWPn+qi0Atl7mYFFCp/nP45e0qy5IAH3w7nnsBAo8RkMY8cck3uVVMN2yWTDrwaxNYGFfGjpu12vnK3pKxIbRVFD+yj+DdHKd51DOf7KfJatRYztbueyLIkmw68UtqtQEeLjCl4s4Wef0xLyBqrWUuJ8/0S5SQx0EfhDeV0c/+n0pMfeDYrc5zfiYb2konufdNhPr7lZbKmpiQiP5YZlbPCwNPEKizm5a+WPoUVG6ZU9yKarLsna86PXGYiIhELB7zX8/I3S1uRuVpPqZ5blMx9d1FozUqKnzwuowsLvP1cwIC0FelffNkCWImjS4lSKRldWODdzwWMSVuR6r1bKyB9sUpG3Hnyo6hnnb2kXwi8DS4gKW1F6vQirYDM79tkxB03o3xq/VGz4gIS/2sBLecSMstmuoCwtBWOWxDcICPuuBnlU3u/YwXULdA34YVntQJGeh+kZGbum/CKkXEUcG7QsQfUJpzxGH6cNT/etZQeDayljuEeGfVOoC/pKGB0Qn81w9vPLyJtm1uxqxTrKab6jkdoZWCdkq/jFQrHxyVidm7GLarYa2rmG/0xGc0B70ouYAkq0Ub39O3Imk+rpvtdmkjM/ipO4iet7khcM2e1Oe+/icMd6vcAjYN2t82NqEFlX73kKKL8683Ue/28RDm5PH6NNnUGYDipmfNqxBKO5W9S5gxWYTk6tB1y4lqvo4BpVXz7FjVeaKH2yyfoy99O0mfBVnq1ZyuVBCrUeOmhOnrik7+yBXw/pH/XwisJz/vE3gadu2Q8yxdDnQ5zrypp3Uhlu392PPsMvHaKbQ7082f4RTskR/cfP+B21LiaFFJpWyUdCHZKlhzw+BWHW8VWB8uyDAH89aoxaoZo6097aFWbvcSzafOZD2gwMiyzcyD33zjcK3buIGCFWxEMb87Dg8doy3c7aE1nLa1ur1RX6uvYRLWnt6m9MBS5ItE6bI4LfEhsCiMrEZS58wa5eNkLX/lMUEQxJjZA//ljAHP5j+tOnLrfcy/IavA/Yn5xeIJjoSbM1R+1+YBki6H1SOyH+iEDSoj4nPv8iKlEDfYbblaKiv4FoeF/NqqvoEMAAAAASUVORK5CYII=" InformativeScreenshot="51f2a27b522c536d03380981447c4c7a.png" Selector="&lt;html app='chrome.exe' title='Google' /&gt;" Url="https://www.google.com/" />
+                    </uix:NApplicationCard.TargetApp>
+                  </uix:NApplicationCard>
+                </TryCatch.Try>
+                <TryCatch.Catches>
+                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,414" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ActivityAction x:TypeArguments="s:Exception">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                      </ActivityAction.Argument>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,345" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">
+                              <mca:CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">out_BoolValidateInitApplications</mca:CSharpReference>
+                            </OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info">
+                          <ui:LogMessage.Message>
+                            <InArgument x:TypeArguments="x:Object">
+                              <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">"Fallo abrir plataforma pajarito"</mca:CSharpValue>
+                            </InArgument>
+                          </ui:LogMessage.Message>
+                        </ui:LogMessage>
+                        <Rethrow sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+                      </Sequence>
+                    </ActivityAction>
+                  </Catch>
+                </TryCatch.Catches>
+              </TryCatch>
+            </Sequence>
+          </ActivityAction>
+        </ui:RetryScope.ActivityBody>
+        <ui:RetryScope.Condition>
+          <ActivityFunc x:TypeArguments="x:Boolean" />
+        </ui:RetryScope.Condition>
+        <ui:RetryScope.NumberOfRetries>
+          <InArgument x:TypeArguments="x:Int32">
+            <mca:CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">Int32.Parse(in_Config["NumeroReintentos"].ToString())</mca:CSharpValue>
+          </InArgument>
+        </ui:RetryScope.NumberOfRetries>
+      </ui:RetryScope>
+    </Sequence>
   </Sequence>
 </Activity>
