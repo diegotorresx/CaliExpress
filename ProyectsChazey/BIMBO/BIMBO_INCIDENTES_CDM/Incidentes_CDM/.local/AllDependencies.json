@@ -8708,15 +8708,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PC-83685\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "Incidentes_CDM",
       "projectName": "Incidentes_CDM",
-      "projectPath": "C:\\ProyectsCaliExpress\\ProyectsChazey\\BIMBO\\BIMBO_INCIDENTES_CDM\\Incidentes_CDM\\.local",
-      "packagesPath": "C:\\Users\\PC-83685\\.nuget\\packages\\",
-      "outputPath": "C:\\ProyectsCaliExpress\\ProyectsChazey\\BIMBO\\BIMBO_INCIDENTES_CDM\\Incidentes_CDM\\.local"
+      "projectPath": "D:\\ProyectsChazey\\BIMBO\\BIMBO_INCIDENTES_CDM\\Incidentes_CDM\\.local",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "D:\\ProyectsChazey\\BIMBO\\BIMBO_INCIDENTES_CDM\\Incidentes_CDM\\.local",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ]
     },
     "frameworks": {
       "net461": {
@@ -8762,7 +8766,7 @@
             "version": "[1.9.1, 1.9.1]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\PC-83685\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\User\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
       }
     },
     "runtimes": {

@@ -105,7 +105,6 @@
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
       <AssemblyReference>UiPath.Python.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Python</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <StateMachine InitialState="{x:Reference __ReferenceID8}" DisplayName="State Machine" sap:VirtualizedContainerService.HintSize="2062,796" sap2010:WorkflowViewState.IdRef="StateMachine_1">
@@ -2198,11 +2197,11 @@
             <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_338">boolOCCompañias &amp;&amp; string.IsNullOrEmpty(Exception)</mca:CSharpValue>
           </Transition.Condition>
           <Transition.To>
-            <State x:Name="__ReferenceID5" DisplayName="0.OC Compañias" sap:VirtualizedContainerService.HintSize="184,105" sap2010:WorkflowViewState.IdRef="State_9">
+            <State x:Name="__ReferenceID5" DisplayName="0.OC Compañias" sap:VirtualizedContainerService.HintSize="560,1551" sap2010:WorkflowViewState.IdRef="State_9">
               <State.Entry>
-                <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="598,1429" sap2010:WorkflowViewState.IdRef="TryCatch_7">
+                <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="514,1164" sap2010:WorkflowViewState.IdRef="TryCatch_7">
                   <TryCatch.Try>
-                    <Sequence sap:VirtualizedContainerService.HintSize="560,1202" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                    <Sequence sap:VirtualizedContainerService.HintSize="476,937" sap2010:WorkflowViewState.IdRef="Sequence_45">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="sd:DataTable" Name="dtOCCompañias" />
                       </Sequence.Variables>
@@ -2211,172 +2210,151 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="518,1110" sap2010:WorkflowViewState.IdRef="RetryScope_1">
-                        <ui:RetryScope.ActivityBody>
-                          <ActivityAction>
-                            <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="476,936" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                      <ui:DatabaseConnect DisplayName="Connect to Excel File" sap:VirtualizedContainerService.HintSize="434,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_8" ProviderName="System.Data.OleDb">
+                        <ui:DatabaseConnect.ConnectionString>
+                          <InArgument x:TypeArguments="x:String">
+                            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_349">dicConfig["ConnectionStringFirstPart"].ToString()+Path.Combine(dicConfig["PathOCCompañiasFile"].ToString(),dicConfig["NameOCCompañiasFile"].ToString())+dicConfig["ConnectionStringSecondPart"].ToString()</mca:CSharpValue>
+                          </InArgument>
+                        </ui:DatabaseConnect.ConnectionString>
+                        <ui:DatabaseConnect.DatabaseConnection>
+                          <OutArgument x:TypeArguments="ui:DatabaseConnection">
+                            <mca:CSharpReference x:TypeArguments="ui:DatabaseConnection" sap2010:WorkflowViewState.IdRef="CSharpReference`1_117">dbConnection</mca:CSharpReference>
+                          </OutArgument>
+                        </ui:DatabaseConnect.DatabaseConnection>
+                      </ui:DatabaseConnect>
+                      <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Run Read data from " sap:VirtualizedContainerService.HintSize="434,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_9">
+                        <ui:ExecuteQuery.DataTable>
+                          <OutArgument x:TypeArguments="sd:DataTable">
+                            <mca:CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_121">dtOCCompañias</mca:CSharpReference>
+                          </OutArgument>
+                        </ui:ExecuteQuery.DataTable>
+                        <ui:ExecuteQuery.ExistingDbConnection>
+                          <InArgument x:TypeArguments="ui:DatabaseConnection">
+                            <mca:CSharpValue x:TypeArguments="ui:DatabaseConnection" sap2010:WorkflowViewState.IdRef="CSharpValue`1_344">dbConnection</mca:CSharpValue>
+                          </InArgument>
+                        </ui:ExecuteQuery.ExistingDbConnection>
+                        <ui:ExecuteQuery.Parameters>
+                          <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                        </ui:ExecuteQuery.Parameters>
+                        <ui:ExecuteQuery.Sql>
+                          <InArgument x:TypeArguments="x:String">
+                            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_345">dicConfig["QueryReadFiles"].ToString()</mca:CSharpValue>
+                          </InArgument>
+                        </ui:ExecuteQuery.Sql>
+                      </ui:ExecuteQuery>
+                      <ui:DatabaseDisconnect DisplayName="Disconnect from database" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_7">
+                        <ui:DatabaseDisconnect.DatabaseConnection>
+                          <InArgument x:TypeArguments="ui:DatabaseConnection">
+                            <mca:CSharpValue x:TypeArguments="ui:DatabaseConnection" sap2010:WorkflowViewState.IdRef="CSharpValue`1_346">dbConnection</mca:CSharpValue>
+                          </InArgument>
+                        </ui:DatabaseDisconnect.DatabaseConnection>
+                      </ui:DatabaseDisconnect>
+                      <ui:DatabaseConnect DisplayName="Connect to SQL Server" sap:VirtualizedContainerService.HintSize="434,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_9" ProviderName="System.Data.SqlClient">
+                        <ui:DatabaseConnect.ConnectionString>
+                          <InArgument x:TypeArguments="x:String">
+                            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_351">"Data Source="+dicConfig["ServerName"].ToString()+";Initial Catalog="+dicConfig["DatabaseName"].ToString()+";Persist Security Info=True;User ID="+strUserDatabase+";Password="+strPasswordDatabase</mca:CSharpValue>
+                          </InArgument>
+                        </ui:DatabaseConnect.ConnectionString>
+                        <ui:DatabaseConnect.DatabaseConnection>
+                          <OutArgument x:TypeArguments="ui:DatabaseConnection">
+                            <mca:CSharpReference x:TypeArguments="ui:DatabaseConnection" sap2010:WorkflowViewState.IdRef="CSharpReference`1_122">dbConnection</mca:CSharpReference>
+                          </OutArgument>
+                        </ui:DatabaseConnect.DatabaseConnection>
+                      </ui:DatabaseConnect>
+                      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="434,295" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+                        <ui:ForEachRow.Body>
+                          <ActivityAction x:TypeArguments="sd:DataRow">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                            </ActivityAction.Argument>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,180" sap2010:WorkflowViewState.IdRef="Sequence_47">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:DatabaseConnect DisplayName="Connect to Excel File" sap:VirtualizedContainerService.HintSize="434,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_8" ProviderName="System.Data.OleDb">
-                                <ui:DatabaseConnect.ConnectionString>
-                                  <InArgument x:TypeArguments="x:String">
-                                    <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_349">dicConfig["ConnectionStringFirstPart"].ToString()+Path.Combine(dicConfig["PathOCCompañiasFile"].ToString(),dicConfig["NameOCCompañiasFile"].ToString())+dicConfig["ConnectionStringSecondPart"].ToString()</mca:CSharpValue>
-                                  </InArgument>
-                                </ui:DatabaseConnect.ConnectionString>
-                                <ui:DatabaseConnect.DatabaseConnection>
-                                  <OutArgument x:TypeArguments="ui:DatabaseConnection">
-                                    <mca:CSharpReference x:TypeArguments="ui:DatabaseConnection" sap2010:WorkflowViewState.IdRef="CSharpReference`1_117">dbConnection</mca:CSharpReference>
-                                  </OutArgument>
-                                </ui:DatabaseConnect.DatabaseConnection>
-                              </ui:DatabaseConnect>
-                              <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Run Read data from " sap:VirtualizedContainerService.HintSize="434,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_9">
+                              <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="StoredProcedure" DisplayName="Run query" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_10" Sql="sp_InsertOCCompañias">
                                 <ui:ExecuteQuery.DataTable>
                                   <OutArgument x:TypeArguments="sd:DataTable">
-                                    <mca:CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_121">dtOCCompañias</mca:CSharpReference>
+                                    <mca:CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_123">dtDataToProcess</mca:CSharpReference>
                                   </OutArgument>
                                 </ui:ExecuteQuery.DataTable>
                                 <ui:ExecuteQuery.ExistingDbConnection>
                                   <InArgument x:TypeArguments="ui:DatabaseConnection">
-                                    <mca:CSharpValue x:TypeArguments="ui:DatabaseConnection" sap2010:WorkflowViewState.IdRef="CSharpValue`1_344">dbConnection</mca:CSharpValue>
+                                    <mca:CSharpValue x:TypeArguments="ui:DatabaseConnection" sap2010:WorkflowViewState.IdRef="CSharpValue`1_352">dbConnection</mca:CSharpValue>
                                   </InArgument>
                                 </ui:ExecuteQuery.ExistingDbConnection>
                                 <ui:ExecuteQuery.Parameters>
-                                  <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                                  <InArgument x:TypeArguments="s:DateTime" x:Key="@Fecha_Diligenciamiento">
+                                    <mca:CSharpValue x:TypeArguments="s:DateTime" sap2010:WorkflowViewState.IdRef="CSharpValue`1_355">Convert.ToDateTime(CurrentRow["Fecha de diligenciamiento"].ToString())</mca:CSharpValue>
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="@Cliente">
+                                    <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_356">CurrentRow["Cliente"].ToString()</mca:CSharpValue>
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="@Orden_de_compra">
+                                    <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_357">CurrentRow["Orden de compra"].ToString()</mca:CSharpValue>
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="@Numero_entrada_mercancia">
+                                    <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_358">CurrentRow["Número de entrada de mercancía"].ToString()</mca:CSharpValue>
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="@Numero_Folio">
+                                    <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_359">CurrentRow["Número de folio"].ToString()</mca:CSharpValue>
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="@Descripcion">
+                                    <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_360">CurrentRow["Descripción"].ToString()</mca:CSharpValue>
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="@UUID">
+                                    <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_361">CurrentRow["UUID"].ToString()</mca:CSharpValue>
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="@Fecha_Factura">
+                                    <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_362">CurrentRow["Fecha factura"].ToString()</mca:CSharpValue>
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="@Clasificacion_Impuestos">
+                                    <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_363">CurrentRow["Clasificación de impuestos"].ToString()</mca:CSharpValue>
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="@Subtotal">
+                                    <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_364">CurrentRow["Subtotal"].ToString()</mca:CSharpValue>
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="@Impuestos">
+                                    <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_365">CurrentRow["Impuestos"].ToString()</mca:CSharpValue>
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="@Total">
+                                    <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_366">CurrentRow["Total"].ToString()</mca:CSharpValue>
+                                  </InArgument>
                                 </ui:ExecuteQuery.Parameters>
-                                <ui:ExecuteQuery.Sql>
-                                  <InArgument x:TypeArguments="x:String">
-                                    <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_345">dicConfig["QueryReadFiles"].ToString()</mca:CSharpValue>
-                                  </InArgument>
-                                </ui:ExecuteQuery.Sql>
                               </ui:ExecuteQuery>
-                              <ui:DatabaseDisconnect DisplayName="Disconnect from database" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_7">
-                                <ui:DatabaseDisconnect.DatabaseConnection>
-                                  <InArgument x:TypeArguments="ui:DatabaseConnection">
-                                    <mca:CSharpValue x:TypeArguments="ui:DatabaseConnection" sap2010:WorkflowViewState.IdRef="CSharpValue`1_346">dbConnection</mca:CSharpValue>
-                                  </InArgument>
-                                </ui:DatabaseDisconnect.DatabaseConnection>
-                              </ui:DatabaseDisconnect>
-                              <ui:DatabaseConnect DisplayName="Connect to SQL Server" sap:VirtualizedContainerService.HintSize="434,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_9" ProviderName="System.Data.SqlClient">
-                                <ui:DatabaseConnect.ConnectionString>
-                                  <InArgument x:TypeArguments="x:String">
-                                    <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_351">"Data Source="+dicConfig["ServerName"].ToString()+";Initial Catalog="+dicConfig["DatabaseName"].ToString()+";Persist Security Info=True;User ID="+strUserDatabase+";Password="+strPasswordDatabase</mca:CSharpValue>
-                                  </InArgument>
-                                </ui:DatabaseConnect.ConnectionString>
-                                <ui:DatabaseConnect.DatabaseConnection>
-                                  <OutArgument x:TypeArguments="ui:DatabaseConnection">
-                                    <mca:CSharpReference x:TypeArguments="ui:DatabaseConnection" sap2010:WorkflowViewState.IdRef="CSharpReference`1_122">dbConnection</mca:CSharpReference>
-                                  </OutArgument>
-                                </ui:DatabaseConnect.DatabaseConnection>
-                              </ui:DatabaseConnect>
-                              <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="434,294" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
-                                <ui:ForEachRow.Body>
-                                  <ActivityAction x:TypeArguments="sd:DataRow">
-                                    <ActivityAction.Argument>
-                                      <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
-                                    </ActivityAction.Argument>
-                                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,180" sap2010:WorkflowViewState.IdRef="Sequence_47">
-                                      <sap:WorkflowViewStateService.ViewState>
-                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                        </scg:Dictionary>
-                                      </sap:WorkflowViewStateService.ViewState>
-                                      <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="StoredProcedure" DisplayName="Run query" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_10" Sql="sp_InsertOCCompañias">
-                                        <ui:ExecuteQuery.DataTable>
-                                          <OutArgument x:TypeArguments="sd:DataTable">
-                                            <mca:CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_123">dtDataToProcess</mca:CSharpReference>
-                                          </OutArgument>
-                                        </ui:ExecuteQuery.DataTable>
-                                        <ui:ExecuteQuery.ExistingDbConnection>
-                                          <InArgument x:TypeArguments="ui:DatabaseConnection">
-                                            <mca:CSharpValue x:TypeArguments="ui:DatabaseConnection" sap2010:WorkflowViewState.IdRef="CSharpValue`1_352">dbConnection</mca:CSharpValue>
-                                          </InArgument>
-                                        </ui:ExecuteQuery.ExistingDbConnection>
-                                        <ui:ExecuteQuery.Parameters>
-                                          <InArgument x:TypeArguments="s:DateTime" x:Key="@Fecha_Diligenciamiento">
-                                            <mca:CSharpValue x:TypeArguments="s:DateTime" sap2010:WorkflowViewState.IdRef="CSharpValue`1_355">Convert.ToDateTime(CurrentRow["Fecha de diligenciamiento"].ToString())</mca:CSharpValue>
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="@Cliente">
-                                            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_356">CurrentRow["Cliente"].ToString()</mca:CSharpValue>
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="@Orden_de_compra">
-                                            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_357">CurrentRow["Orden de compra"].ToString()</mca:CSharpValue>
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="@Numero_entrada_mercancia">
-                                            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_358">CurrentRow["Número de entrada de mercancía"].ToString()</mca:CSharpValue>
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="@Numero_Folio">
-                                            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_359">CurrentRow["Número de folio"].ToString()</mca:CSharpValue>
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="@Descripcion">
-                                            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_360">CurrentRow["Descripción"].ToString()</mca:CSharpValue>
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="@UUID">
-                                            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_361">CurrentRow["UUID"].ToString()</mca:CSharpValue>
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="@Fecha_Factura">
-                                            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_362">CurrentRow["Fecha factura"].ToString()</mca:CSharpValue>
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="@Clasificacion_Impuestos">
-                                            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_363">CurrentRow["Clasificación de impuestos"].ToString()</mca:CSharpValue>
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="@Subtotal">
-                                            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_364">CurrentRow["Subtotal"].ToString()</mca:CSharpValue>
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="@Impuestos">
-                                            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_365">CurrentRow["Impuestos"].ToString()</mca:CSharpValue>
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="@Total">
-                                            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_366">CurrentRow["Total"].ToString()</mca:CSharpValue>
-                                          </InArgument>
-                                        </ui:ExecuteQuery.Parameters>
-                                      </ui:ExecuteQuery>
-                                    </Sequence>
-                                  </ActivityAction>
-                                </ui:ForEachRow.Body>
-                                <ui:ForEachRow.DataTable>
-                                  <InArgument x:TypeArguments="sd:DataTable">
-                                    <mca:CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_350">dtOCCompañias</mca:CSharpValue>
-                                  </InArgument>
-                                </ui:ForEachRow.DataTable>
-                              </ui:ForEachRow>
-                              <ui:DatabaseDisconnect DisplayName="Disconnect from database" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_8">
-                                <ui:DatabaseDisconnect.DatabaseConnection>
-                                  <InArgument x:TypeArguments="ui:DatabaseConnection">
-                                    <mca:CSharpValue x:TypeArguments="ui:DatabaseConnection" sap2010:WorkflowViewState.IdRef="CSharpValue`1_354">dbConnection</mca:CSharpValue>
-                                  </InArgument>
-                                </ui:DatabaseDisconnect.DatabaseConnection>
-                              </ui:DatabaseDisconnect>
-                              <Assign sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Assign_59">
-                                <Assign.To>
-                                  <OutArgument x:TypeArguments="x:String">
-                                    <mca:CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_119">Exception</mca:CSharpReference>
-                                  </OutArgument>
-                                </Assign.To>
-                                <Assign.Value>
-                                  <InArgument x:TypeArguments="x:String">
-                                    <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_347">null</mca:CSharpValue>
-                                  </InArgument>
-                                </Assign.Value>
-                              </Assign>
                             </Sequence>
                           </ActivityAction>
-                        </ui:RetryScope.ActivityBody>
-                        <ui:RetryScope.Condition>
-                          <ActivityFunc x:TypeArguments="x:Boolean" />
-                        </ui:RetryScope.Condition>
-                        <ui:RetryScope.NumberOfRetries>
-                          <InArgument x:TypeArguments="x:Int32">
-                            <mca:CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_367">Int32.Parse(dicConfig[""].ToString())</mca:CSharpValue>
+                        </ui:ForEachRow.Body>
+                        <ui:ForEachRow.DataTable>
+                          <InArgument x:TypeArguments="sd:DataTable">
+                            <mca:CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_350">dtOCCompañias</mca:CSharpValue>
                           </InArgument>
-                        </ui:RetryScope.NumberOfRetries>
-                      </ui:RetryScope>
+                        </ui:ForEachRow.DataTable>
+                      </ui:ForEachRow>
+                      <ui:DatabaseDisconnect DisplayName="Disconnect from database" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_8">
+                        <ui:DatabaseDisconnect.DatabaseConnection>
+                          <InArgument x:TypeArguments="ui:DatabaseConnection">
+                            <mca:CSharpValue x:TypeArguments="ui:DatabaseConnection" sap2010:WorkflowViewState.IdRef="CSharpValue`1_354">dbConnection</mca:CSharpValue>
+                          </InArgument>
+                        </ui:DatabaseDisconnect.DatabaseConnection>
+                      </ui:DatabaseDisconnect>
+                      <Assign sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Assign_59">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">
+                            <mca:CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_119">Exception</mca:CSharpReference>
+                          </OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">
+                            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_347">null</mca:CSharpValue>
+                          </InArgument>
+                        </Assign.Value>
+                      </Assign>
                     </Sequence>
                   </TryCatch.Try>
                   <TryCatch.Catches>
-                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="564,21" sap2010:WorkflowViewState.IdRef="Catch`1_7">
+                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="480,21" sap2010:WorkflowViewState.IdRef="Catch`1_7">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
