@@ -9853,9 +9853,9 @@
     "restore": {
       "projectUniqueName": "INFA",
       "projectName": "INFA",
-      "projectPath": "D:\\ProyectsChazey\\Manpower\\Ingreso_Facturas\\INFA\\.local",
+      "projectPath": "D:\\CaliExpress\\ProyectsChazey\\Manpower\\Ingreso_Facturas\\INFA\\.local",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\ProyectsChazey\\Manpower\\Ingreso_Facturas\\INFA\\.local",
+      "outputPath": "D:\\CaliExpress\\ProyectsChazey\\Manpower\\Ingreso_Facturas\\INFA\\.local",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ]

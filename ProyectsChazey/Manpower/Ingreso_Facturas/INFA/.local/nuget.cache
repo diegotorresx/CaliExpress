@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KP7QRz6U1erDTfijCdEzoWolXLjDrVYwILzp9EEeqsJfRFAnvwf3SR+/l1UPzHXNy8fTqEQKTRqJZeSwREEoLQ==",
+  "dgSpecHash": "ZbMjtKimh7N3ubl1orMM/LegU674SOhH4rD1SotFetGntW8AOWpQO1Nptc/nYmZn6rOasb/uNJGR/11gRjboLw==",
   "success": true,
-  "projectFilePath": "D:\\ProyectsChazey\\Manpower\\Ingreso_Facturas\\INFA\\.local\\",
+  "projectFilePath": "D:\\CaliExpress\\ProyectsChazey\\Manpower\\Ingreso_Facturas\\INFA\\.local\\",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\closedxml\\0.87.1\\closedxml.0.87.1.nupkg.sha512",
