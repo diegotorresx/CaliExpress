@@ -9844,15 +9844,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PC-83685\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "INFA",
       "projectName": "INFA",
-      "projectPath": "C:\\ProyectsCaliExpress\\ProyectsChazey\\Manpower\\Ingreso_Facturas\\INFA\\.local",
-      "packagesPath": "C:\\Users\\PC-83685\\.nuget\\packages\\",
-      "outputPath": "C:\\ProyectsCaliExpress\\ProyectsChazey\\Manpower\\Ingreso_Facturas\\INFA\\.local"
+      "projectPath": "D:\\CaliExpress\\ProyectsChazey\\Manpower\\Ingreso_Facturas\\INFA\\.local",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "D:\\CaliExpress\\ProyectsChazey\\Manpower\\Ingreso_Facturas\\INFA\\.local",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ]
     },
     "frameworks": {
       "net461": {
@@ -9893,7 +9897,7 @@
             "version": "[22.4.4, 22.4.4]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\PC-83685\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\User\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
       }
     },
     "runtimes": {
@@ -9901,13 +9905,5 @@
         "#import": []
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\ProyectsCaliExpress\\ProyectsChazey\\Manpower\\Ingreso_Facturas\\INFA\\.local\\nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
