@@ -5,6 +5,7 @@
     <x:Property Name="Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="outBoolValidateReadData" Type="OutArgument(x:Boolean)" />
     <x:Property Name="outFileEjecución" Type="OutArgument(x:String)" />
+    <x:Property Name="dtInputData" Type="OutArgument(sd:DataTable)" />
   </x:Members>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
   <sap:VirtualizedContainerService.HintSize>648,3040</sap:VirtualizedContainerService.HintSize>
@@ -96,7 +97,6 @@
       <Variable x:TypeArguments="ui:DatabaseConnection" Name="dbConnection" />
       <Variable x:TypeArguments="si:DirectoryInfo" Name="directoryInfoGetFiles" />
       <Variable x:TypeArguments="si:FileInfo[]" Name="fileInfoDownloadInput" />
-      <Variable x:TypeArguments="sd:DataTable" Name="dtInputData" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -232,7 +232,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="376,280" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence sap:VirtualizedContainerService.HintSize="376,283" sap2010:WorkflowViewState.IdRef="Sequence_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
