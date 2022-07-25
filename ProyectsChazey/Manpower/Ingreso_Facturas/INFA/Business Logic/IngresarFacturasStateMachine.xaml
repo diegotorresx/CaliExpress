@@ -6,7 +6,7 @@
     <x:Property Name="dicConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1177,752</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1240,752</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -239,7 +239,7 @@
                                         <av:PointCollection x:Key="ConnectorLocation">430,373 430,403 540,403 540,446.5</av:PointCollection>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <Sequence DisplayName="Extraer OC Compañia" sap:VirtualizedContainerService.HintSize="634,1728" sap2010:WorkflowViewState.IdRef="Sequence_77">
+                                    <Sequence DisplayName="Extraer OC Compañia" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_77">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -939,7 +939,7 @@
                         <av:PointCollection x:Key="ConnectorLocation">550,323 550,376.5</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="Get data from Transaction Item" sap:VirtualizedContainerService.HintSize="1162,2785" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                    <Sequence DisplayName="Get data from Transaction Item" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_28">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2283,7 +2283,7 @@
             <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">boolABinVev</mca:CSharpValue>
           </Transition.Condition>
           <Transition.To>
-            <State x:Name="__ReferenceID26" DisplayName="2.ABinVev" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_5">
+            <State x:Name="__ReferenceID26" DisplayName="2.ABinVev" sap:VirtualizedContainerService.HintSize="396,472" sap2010:WorkflowViewState.IdRef="State_5">
               <State.Entry>
                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ABinVev workflow" sap:VirtualizedContainerService.HintSize="350,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Send Factura to Portal Clientes\\ABinVev.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
@@ -2411,7 +2411,7 @@
             <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">boolTelevisa == false &amp;&amp; boolABinVev == false &amp;&amp; boolAriba == false &amp;&amp; boolGrupoPepsico == false &amp;&amp; boolCooperationManufacturing == false &amp;&amp; boolCorreo == false</mca:CSharpValue>
           </Transition.Condition>
           <Transition.To>
-            <State x:Name="__ReferenceID23" DisplayName="7.Final State Client is not found in client master" sap:VirtualizedContainerService.HintSize="604,4422" sap2010:WorkflowViewState.IdRef="State_2" IsFinal="True">
+            <State x:Name="__ReferenceID23" DisplayName="7.Final State Client is not found in client master" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_2" IsFinal="True">
               <State.Entry>
                 <Sequence sap:VirtualizedContainerService.HintSize="558,4309" sap2010:WorkflowViewState.IdRef="Sequence_68">
                   <sap:WorkflowViewStateService.ViewState>
@@ -2697,18 +2697,14 @@
                                   <InArgument x:TypeArguments="x:Int32" x:Key="@ID">
                                     <mca:CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_224">intIdLog</mca:CSharpValue>
                                   </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="@Status">
-                                    <Literal x:TypeArguments="x:String">No existe en maestro clientes</Literal>
-                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="@Status">No existe en maestro clientes</InArgument>
                                   <InArgument x:TypeArguments="s:DateTime" x:Key="@Fecha_Envio">
                                     <mca:CSharpValue x:TypeArguments="s:DateTime" sap2010:WorkflowViewState.IdRef="CSharpValue`1_223">DateTime.Now</mca:CSharpValue>
                                   </InArgument>
                                   <InArgument x:TypeArguments="x:String" x:Key="@Medio_Envio">
                                     <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_222">null</mca:CSharpValue>
                                   </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="@Observaciones">
-                                    <Literal x:TypeArguments="x:String">El id del cliente no se encontro en el archivo parametrico de Maestro Clientes</Literal>
-                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="@Observaciones">El id del cliente no se encontro en el archivo parametrico de Maestro Clientes</InArgument>
                                 </ui:ExecuteQuery.Parameters>
                               </ui:ExecuteQuery>
                               <ui:DatabaseDisconnect DisplayName="Disconnect from database" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_5">
@@ -2798,18 +2794,14 @@
                                   <InArgument x:TypeArguments="x:Int32" x:Key="@ID">
                                     <mca:CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_230">intIdLog</mca:CSharpValue>
                                   </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="@Status">
-                                    <Literal x:TypeArguments="x:String">No Enviado</Literal>
-                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="@Status">No Enviado</InArgument>
                                   <InArgument x:TypeArguments="s:DateTime" x:Key="@Fecha_Envio">
                                     <mca:CSharpValue x:TypeArguments="s:DateTime" sap2010:WorkflowViewState.IdRef="CSharpValue`1_229">DateTime.Now</mca:CSharpValue>
                                   </InArgument>
                                   <InArgument x:TypeArguments="x:String" x:Key="@Medio_Envio">
                                     <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_228">null</mca:CSharpValue>
                                   </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="@Observaciones">
-                                    <Literal x:TypeArguments="x:String">No se pudo descargar la factura asociada en el Baul de facturas (Facturas electronicas) validar que exista el registro en la plataforma para reelanzar esta factura</Literal>
-                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="@Observaciones">No se pudo descargar la factura asociada en el Baul de facturas (Facturas electronicas) validar que exista el registro en la plataforma para reelanzar esta factura</InArgument>
                                 </ui:ExecuteQuery.Parameters>
                               </ui:ExecuteQuery>
                               <ui:DatabaseDisconnect DisplayName="Disconnect from database" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_6">
