@@ -6,7 +6,7 @@
     <x:Property Name="dicConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1177,752</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1274,827</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -112,7 +112,7 @@
         <av:PointCollection x:Key="ConnectorLocation">513,77.5 513,107.5 513.3,107.5 513.3,129.5</av:PointCollection>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <State x:Name="__ReferenceID31" DisplayName="0.Validate Process" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_1">
+    <State x:Name="__ReferenceID31" DisplayName="0.Validate Process" sap:VirtualizedContainerService.HintSize="1092,3224" sap2010:WorkflowViewState.IdRef="State_1">
       <State.Entry>
         <Sequence sap:VirtualizedContainerService.HintSize="1046,2702" sap2010:WorkflowViewState.IdRef="Sequence_27">
           <Sequence.Variables>
@@ -939,7 +939,7 @@
                         <av:PointCollection x:Key="ConnectorLocation">550,323 550,376.5</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="Get data from Transaction Item" sap:VirtualizedContainerService.HintSize="1162,2785" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                    <Sequence DisplayName="Get data from Transaction Item" sap:VirtualizedContainerService.HintSize="1162,2899" sap2010:WorkflowViewState.IdRef="Sequence_28">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1018,22 +1018,23 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:ForEach>
-                      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="1120,608" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="1120,722" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
                         <ui:ForEachRow.Body>
                           <ActivityAction x:TypeArguments="sd:DataRow">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,493" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,607" sap2010:WorkflowViewState.IdRef="Sequence_49">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
+                              <ui:Comment sap:VirtualizedContainerService.HintSize="484,74" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// Validar que la condición en el if esté correcta." />
                               <If sap:VirtualizedContainerService.HintSize="484,401" sap2010:WorkflowViewState.IdRef="If_14">
                                 <If.Condition>
                                   <InArgument x:TypeArguments="x:Boolean">
-                                    <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_57">arrayInputData[1].Trim() == CurrentRow[1].ToString().Trim()</mca:CSharpValue>
+                                    <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_331">arrayInputData[2].Trim() == CurrentRow[1].ToString().Trim()</mca:CSharpValue>
                                   </InArgument>
                                 </If.Condition>
                                 <If.Then>
@@ -2411,7 +2412,7 @@
             <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">boolTelevisa == false &amp;&amp; boolABinVev == false &amp;&amp; boolAriba == false &amp;&amp; boolGrupoPepsico == false &amp;&amp; boolCooperationManufacturing == false &amp;&amp; boolCorreo == false</mca:CSharpValue>
           </Transition.Condition>
           <Transition.To>
-            <State x:Name="__ReferenceID23" DisplayName="7.Final State Client is not found in client master" sap:VirtualizedContainerService.HintSize="604,4422" sap2010:WorkflowViewState.IdRef="State_2" IsFinal="True">
+            <State x:Name="__ReferenceID23" DisplayName="7.Final State Client is not found in client master" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_2" IsFinal="True">
               <State.Entry>
                 <Sequence sap:VirtualizedContainerService.HintSize="558,4309" sap2010:WorkflowViewState.IdRef="Sequence_68">
                   <sap:WorkflowViewStateService.ViewState>
@@ -2697,18 +2698,14 @@
                                   <InArgument x:TypeArguments="x:Int32" x:Key="@ID">
                                     <mca:CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_224">intIdLog</mca:CSharpValue>
                                   </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="@Status">
-                                    <Literal x:TypeArguments="x:String">No existe en maestro clientes</Literal>
-                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="@Status">No existe en maestro clientes</InArgument>
                                   <InArgument x:TypeArguments="s:DateTime" x:Key="@Fecha_Envio">
                                     <mca:CSharpValue x:TypeArguments="s:DateTime" sap2010:WorkflowViewState.IdRef="CSharpValue`1_223">DateTime.Now</mca:CSharpValue>
                                   </InArgument>
                                   <InArgument x:TypeArguments="x:String" x:Key="@Medio_Envio">
                                     <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_222">null</mca:CSharpValue>
                                   </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="@Observaciones">
-                                    <Literal x:TypeArguments="x:String">El id del cliente no se encontro en el archivo parametrico de Maestro Clientes</Literal>
-                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="@Observaciones">El id del cliente no se encontro en el archivo parametrico de Maestro Clientes</InArgument>
                                 </ui:ExecuteQuery.Parameters>
                               </ui:ExecuteQuery>
                               <ui:DatabaseDisconnect DisplayName="Disconnect from database" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_5">
@@ -2798,18 +2795,14 @@
                                   <InArgument x:TypeArguments="x:Int32" x:Key="@ID">
                                     <mca:CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_230">intIdLog</mca:CSharpValue>
                                   </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="@Status">
-                                    <Literal x:TypeArguments="x:String">No Enviado</Literal>
-                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="@Status">No Enviado</InArgument>
                                   <InArgument x:TypeArguments="s:DateTime" x:Key="@Fecha_Envio">
                                     <mca:CSharpValue x:TypeArguments="s:DateTime" sap2010:WorkflowViewState.IdRef="CSharpValue`1_229">DateTime.Now</mca:CSharpValue>
                                   </InArgument>
                                   <InArgument x:TypeArguments="x:String" x:Key="@Medio_Envio">
                                     <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_228">null</mca:CSharpValue>
                                   </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="@Observaciones">
-                                    <Literal x:TypeArguments="x:String">No se pudo descargar la factura asociada en el Baul de facturas (Facturas electronicas) validar que exista el registro en la plataforma para reelanzar esta factura</Literal>
-                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="@Observaciones">No se pudo descargar la factura asociada en el Baul de facturas (Facturas electronicas) validar que exista el registro en la plataforma para reelanzar esta factura</InArgument>
                                 </ui:ExecuteQuery.Parameters>
                               </ui:ExecuteQuery>
                               <ui:DatabaseDisconnect DisplayName="Disconnect from database" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_6">
