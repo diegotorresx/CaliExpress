@@ -240,7 +240,7 @@
                       <av:PointCollection x:Key="ConnectorLocation">610,1053 610,1156.5</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Descarga del archivo Input Caex" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <Sequence DisplayName="Descarga del archivo Input Caex" sap:VirtualizedContainerService.HintSize="974,4118" sap2010:WorkflowViewState.IdRef="Sequence_11">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="si:DirectoryInfo" Name="dirInfoDownloadFile" />
                     </Sequence.Variables>
@@ -354,7 +354,7 @@
                                             <uix:TargetAnchorable BrowserURL="http://190.145.107.211/sistema_personalizado/index.php/ContactCenter/vistaAgente" DesignTimeRectangle="992, 383, 334, 31" ElementType="Button" FriendlyName="'Consultar'" FullSelectorArgument="&lt;webctrl parentid='fomrDesReport' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='fomrDesReport' tag='BUTTON' type='button' class='btn btn-outline-primary btn-small btn-block' aaname='Consultar' check:innerText='Consultar' /&gt;" Guid="41ea3708-f0e9-4d8f-93c6-afa37e2b73f8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAVIAAAAjCAYAAADG3II/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ5SURBVHhe7d2xbhNBEIdxOl4tj5BHSEnngoKU7lxSp0wZIVFQ0CAKpLxGnmPY/3G7nlvP+ZydyCD0jfSTbO/e4erTnoWUd8YwDMOkhpAyDMMkZxHS5xezmwez95/KwkcAgKc2qpFqpZ8WUi1o0+2j2eGn2edfAABPbVQj1Uof0xZSVVYboosBAEdqpZpZp4VUheUkCgDb1Eo1s04LqZ7/owsAAKfUzDqEFAAGEFIASCKkAJBESAEgiZACQBIhBYAkQoq8H2YfnszunPvyWbj3Su6/mO2+x2vAWyOkSDl8C8JZXu/K537ftfUh3f0Dccf/i5BiXAmVIrqP1v4yQoprIqQYtv9aHukvOHkqamuP/dOJttxH96rri3uWvf5ngxrH6N/2sWwh7a6/K58f3P7o8/qd6vcmwNhCSDGsP/VFphiVKLXPulNs/Wmg3WdePwnivH8/v744pMHapKz16/V9+HMFcAYhxbDNkJYQ6TTYP/r76+rpb21dr6NTbzqkHX+/6DsB5xBSDItitlBC5h+Zq61o9RHUe50Q/b63CGm774yQYhQhxbiVUDYrJ1JF8NITqafr6t5sSPv1rbgD5xBSpNRT3SKWJVj1vz9N6z5Kiq/bvxXSnVvze6fXZV+N+BTZV4Q0ek9IMYqQIm0KTwmR58NaYxutbYV0ca0LZ7+m/edOpO07zvfov7OCTUgxipACQBIhBYAkQgoASYQUAJIIKQAkEVIASApDyt+1B4DLrP5d+5sHs9vH+CIAwJFaqWbWaSF9fvlTWG3gZAoAp9RGNVKtVDPrtJBqtKDKapOe/wEAR2qjGukjqlmElGEYhnn9EFKGYZjUmP0GDj6JGcY+kQcAAAAASUVORK5CYII=" InformativeScreenshot="7d451c0ffd685d308c28215d1fa49ee2.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CAEX |Agente' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive" />
                                           </uix:NClick.Target>
                                         </uix:NClick>
-                                        <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State '&amp;Guardar'" sap:VirtualizedContainerService.HintSize="734,967" sap2010:WorkflowViewState.IdRef="NCheckState_5" ScopeIdentifier="41180516-ea21-44b4-9fcc-de9213de1cf1" Timeout="120" Version="V1">
+                                        <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State '&amp;Guardar'" sap:VirtualizedContainerService.HintSize="734,967" sap2010:WorkflowViewState.IdRef="NCheckState_5" ScopeIdentifier="41180516-ea21-44b4-9fcc-de9213de1cf1" Timeout="300" Version="V1">
                                           <uix:NCheckState.IfExists>
                                             <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="376,751" sap2010:WorkflowViewState.IdRef="Sequence_22">
                                               <sap:WorkflowViewStateService.ViewState>
@@ -503,7 +503,7 @@
                               <av:PointCollection x:Key="ConnectorLocation">400,1440 350,1440 350,1293.5</av:PointCollection>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Sequence DisplayName="Validar si archivo existe" sap:VirtualizedContainerService.HintSize="773,1241" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                          <Sequence DisplayName="Validar si archivo existe" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_15">
                             <Sequence.Variables>
                               <Variable x:TypeArguments="si:FileInfo[]" Name="fileInfoDownloadInput" />
                               <Variable x:TypeArguments="si:DirectoryInfo" Name="directoryInfoGetFiles" />
